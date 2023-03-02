@@ -1,0 +1,52 @@
+.cover-image {
+    background: url('https://www.themoviedb.org/t/p/w300_and_h450_bestv2/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 1400px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 31.5, 31.5, 0.84) 50%, rgba(31.5, 31.5, 31.5, 0.84) 100%);
+}
+
+.movie-poster-wrapper {
+    & img {
+        border-radius: .6rem;
+    }
+}
+
+.movie-detail {
+    flex: 1;
+    padding-left: 3rem ;
+    
+}
+
+.title-gerne {
+    margin-bottom: 2rem;
+    & h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color:aliceblue;
+        margin: .6rem 0;
+    }
+
+    & h3 {
+        color: azure;
+    }
+    
+    & span {
+        border: 1px solid gray ;
+        padding: .2rem;
+        color: gray;
+        margin-right: .6rem;
+    }
+}
+
+.score-trailer, 
+.score-area {
+    display: flex;
+    align-items: center;
+}
+

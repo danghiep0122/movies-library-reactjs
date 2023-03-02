@@ -7,8 +7,6 @@ import ErrorPage from './pages/error404';
 import MovieDetail from './pages/movie';
 import TvShow from './pages/tvShow';
 
-import './App.scss';
-
 function App() {
   return (
     <main className="app">
