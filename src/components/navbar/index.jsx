@@ -24,6 +24,9 @@ export default function NavBar() {
           <li>
             <Link to={'/tvshow'}>TV Show</Link>
           </li>
+          <li>
+            <Link to={'/person'}>Popular People</Link>
+          </li>
         </ul>
       </section>
 

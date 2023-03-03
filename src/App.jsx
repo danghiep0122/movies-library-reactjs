@@ -6,6 +6,8 @@ import TopTrending from './pages/topTrending';
 import ErrorPage from './pages/error404';
 import MovieDetail from './pages/movie';
 import TvShow from './pages/tvShow';
+import Persons from './pages/persons';
+import Person from './pages/personDetails';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/toptrending" element={<TopTrending />} />
           <Route path="/toptrending/:id" element={<MovieDetail />} />
           <Route path="/tvshow" element={<TvShow />} />
+          <Route path="/person" element={<Persons />} />
+          <Route path="/person/:id" element={<Person />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
