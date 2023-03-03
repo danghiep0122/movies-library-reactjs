@@ -15,7 +15,8 @@ export const ReadMore = ({ children }) => {
             ? { cursor: 'pointer', color: '#25395ccc', fontWeight: 600 }
             : { cursor: 'pointer', color: '#25395ccc' }
         }
-        onClick={toggleReadMore}>
+        onClick={toggleReadMore}
+      >
         {isMore ? '...read more' : 'show less'}
       </span>
     </p>
