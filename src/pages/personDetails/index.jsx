@@ -10,24 +10,26 @@ export default function Person() {
   const [data, setData] = useState({});
   const [credits, setCredits] = useState([]);
   const [social, setSocial] = useState({});
-  let { personId } = useParams();
+  const { personId } = useParams();
 
-  const urlData = `https://api.themoviedb.org/3/person/${personId}?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
+  const Apikey = process.env.REACT_APP_API_KEY;
+  const PersonUrl = process.env.REACT_APP_PERSON_URL;
 
-  const urlCredits = `https://api.themoviedb.org/3/person/${personId}/combined_credits?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
+  const urlData = `${PersonUrl}${personId}?api_key=${Apikey}&language=en-US`;
 
-  const urlSocials = `https://api.themoviedb.org/3/person/${personId}/external_ids?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
+  const urlCredits = `${PersonUrl}${personId}/combined_credits?api_key=${Apikey}&language=en-US`;
+
+  const urlSocials = `${PersonUrl}${personId}/external_ids?api_key=${Apikey}&language=en-US`;
 
   useEffect(() => {
     axios.get(urlData).then((res) => setData(res.data));
     axios.get(urlCredits).then((res) => setCredits(res.data.cast));
     axios.get(urlSocials).then((res) => setSocial(res.data));
   }, []);
-  console.log(data);
   return (
     <main className="person-detail-main">
       <div className="tool">
-        <div>ID : {personId}</div>
+        <h4>ID : {personId}</h4>
       </div>
       {data && (
         <div className="body-wrapper">
