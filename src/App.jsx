@@ -19,7 +19,7 @@ function App() {
           <Route path="/toptrending/:id" element={<MovieDetail />} />
           <Route path="/tvshow" element={<TvShow />} />
           <Route path="/person" element={<Persons />} />
-          <Route path="/person/:id" element={<Person />} />
+          <Route path="/person/:personId" element={<Person />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

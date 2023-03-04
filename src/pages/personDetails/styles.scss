@@ -17,12 +17,15 @@
 
 .profile-img {
     height: 450px;
-
+    box-shadow: 0px 0px 16px 0px rgb(0, 0, 0, .2);
     border-radius: .8rem;
     overflow: hidden;
+    display: flex;
+    align-items: center;
     
     & img {
-        height: 450px;
+        width: 300px;
+        height: auto;
     }
 }
 
@@ -82,18 +85,19 @@
 
 .know-for-section {
     margin-bottom: 2rem;
+
     h3 {
         font-size: larger;
         margin-bottom: 1rem;
     }
 
     .list-movie-tv-show {
-        max-width: 900px;
         display: block;
     }
 
     ul {
         display: flex;
+        width: 1000px;
         overflow-x: scroll;
     }
 }
@@ -103,16 +107,30 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-
-    img {
-        height: 190px;
-        border-radius: .4rem;
-        margin-bottom: .4rem;
-    }
-
+    
     h4 {
+        overflow: hidden;
         font-size: small;
         font-weight: 600;
+        width: 130px;
+        height: 28px;
+        margin-bottom: 1rem;
+    }
+}
+
+div.item-img {
+    height: 190px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: .6rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 8px 0px rgb(0, 0, 0, .2);
+
+    & img {
+        width: 100%;
+        object-fit: cover;
     }
 }
 

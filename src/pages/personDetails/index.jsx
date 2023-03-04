@@ -1,39 +1,44 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import './styles.scss';
 import { ReadMore } from '../../util/ReadMore';
 import { FacebookIcon, TwitterIcon, InstagramIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 
-const urlData =
-  'https://api.themoviedb.org/3/person/976?api_key=2feceab83c679d844299e10bff5e391c&language=en-US';
-
-const urlCredits =
-  'https://api.themoviedb.org/3/person/976/combined_credits?api_key=2feceab83c679d844299e10bff5e391c&language=en-US';
-
-const urlSocials =
-  'https://api.themoviedb.org/3/person/976/external_ids?api_key=2feceab83c679d844299e10bff5e391c&language=en-US';
-
 export default function Person() {
   const [data, setData] = useState({});
   const [credits, setCredits] = useState([]);
   const [social, setSocial] = useState({});
+  let { personId } = useParams();
+
+  const urlData = `https://api.themoviedb.org/3/person/${personId}?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
+
+  const urlCredits = `https://api.themoviedb.org/3/person/${personId}/combined_credits?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
+
+  const urlSocials = `https://api.themoviedb.org/3/person/${personId}/external_ids?api_key=2feceab83c679d844299e10bff5e391c&language=en-US`;
 
   useEffect(() => {
     axios.get(urlData).then((res) => setData(res.data));
     axios.get(urlCredits).then((res) => setCredits(res.data.cast));
     axios.get(urlSocials).then((res) => setSocial(res.data));
   }, []);
-  console.log(social);
+  console.log(data);
   return (
     <main className="person-detail-main">
-      <div className="tool">Some tool here</div>
+      <div className="tool">
+        <div>ID : {personId}</div>
+      </div>
       {data && (
         <div className="body-wrapper">
           <section className="person-overall">
             <div className="profile-img">
               <img
-                src={data ? `https://image.tmdb.org/t/p/w500/${data.profile_path}` : ''}
+                src={
+                  data.profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${data.profile_path}`
+                    : 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
+                }
                 alt="profile Name"
               />
             </div>
@@ -104,11 +109,17 @@ export default function Person() {
                   {credits.slice(0, 10).map((item) => (
                     <li key={item.id}>
                       <div className="movie-tv-item">
-                        <img
-                          src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                          alt="profile Name"
-                        />
-                        <h4>{item.title}</h4>
+                        <div className="item-img">
+                          <img
+                            src={
+                              (item.poster_path &&
+                                `https://image.tmdb.org/t/p/w500/${item.poster_path}`) ||
+                              'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
+                            }
+                            alt="Movie Poster"
+                          />
+                        </div>
+                        <h4>{item.title || item.name}</h4>
                       </div>
                     </li>
                   ))}
