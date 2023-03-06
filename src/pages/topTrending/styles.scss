@@ -1,0 +1,24 @@
+.top-trending-page {
+  display: flex;
+  justify-content: center;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.page-title {
+  padding: 1rem 0;
+
+  & h2 {
+    font-size: larger;
+  }
+}
+
+.inner-content {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
