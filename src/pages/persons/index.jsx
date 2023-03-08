@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import PageList from '../../util/PageList';
+import SearchForm from '../../components/search';
 
 export default function Persons() {
   const [allPeople, setAllPeople] = useState([]);
   const [pageNo, setPageNo] = useState(1);
-  const list = PageList(12);
+  const list = PageList(15);
 
   const personUrl = process.env.REACT_APP_PERSON_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -32,6 +33,9 @@ export default function Persons() {
   return (
     <main className="people-page">
       <div className="inner-content">
+        <section className="search-people-section">
+          <SearchForm />
+        </section>
         <section className="page-title">
           <h2>Popular People</h2>
         </section>
