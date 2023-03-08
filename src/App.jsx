@@ -8,6 +8,7 @@ import MovieDetail from './pages/movie';
 import TvShow from './pages/tvShow';
 import Persons from './pages/persons';
 import Person from './pages/personDetails';
+import TopRatedLayOut from './pages/topRated';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/toptrending" element={<TopTrending />} />
+          <Route path="/toprated" element={<TopRatedLayOut />} />
           <Route path="/toptrending/:id" element={<MovieDetail />} />
           <Route path="/tvshow" element={<TvShow />} />
           <Route path="/person" element={<Persons />} />

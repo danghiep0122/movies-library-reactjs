@@ -21,6 +21,9 @@ export default function NavBar() {
             <Link to={'/toptrending/1'}>Detail</Link>
           </li>
           <li>
+            <Link to={'/toprated'}>Top Rated</Link>
+          </li>
+          <li>
             <Link to={'/tvshow'}>TV Show</Link>
           </li>
           <li>

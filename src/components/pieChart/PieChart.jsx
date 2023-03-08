@@ -19,7 +19,8 @@ const Circle = ({ colour, pct }) => {
       strokeWidth={'4px'}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
-      strokeLinecap="round"></circle>
+      strokeLinecap="round"
+    ></circle>
   );
 };
 
@@ -32,7 +33,8 @@ const Text = ({ percentage, fontSize }) => {
       textAnchor="middle"
       fill="#ECF9FF"
       fontSize={fontSize}
-      fontWeight={700}>
+      fontWeight={700}
+    >
       {typeof percentage !== 'number' ? 'NR' : percentage.toFixed(0)}
     </text>
   );
