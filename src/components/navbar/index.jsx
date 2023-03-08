@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { PrimaryShortLogo } from '../../assets/img/icon/allIcon';
 
 import './styles.scss';
-import SearchForm from '../search';
 
 export default function NavBar() {
   return (
@@ -30,9 +29,7 @@ export default function NavBar() {
         </ul>
       </section>
 
-      <section className="search-section">
-        <SearchForm />
-      </section>
+      <section className="search-section"></section>
     </nav>
   );
 }

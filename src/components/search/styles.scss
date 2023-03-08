@@ -1,0 +1,112 @@
+.search-component {
+    padding-top: 3rem;
+    position: relative;
+}
+
+.seach-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+    & input {
+        font-size: 1rem;
+        flex: 1;
+        border-radius: 2rem;
+        border: none;
+        background-color: aliceblue;
+        padding: .8rem 2rem;
+        outline: none;
+    }
+}
+
+.seach-form input:placeholder-shown ~ .right-component .delete-icon {
+    display: none;
+}
+
+.right-component {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+
+    & button {
+        border: none;
+        padding: .8rem 1.8rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 2rem;
+        background-image: linear-gradient(90deg, #38E54D, #9CFF2E , #FDFF00);
+        color: #16213E;
+    }
+}
+
+.delete-icon {
+    cursor: pointer;
+    padding: 0 1rem ;
+    transition: transform ease .4s;
+}
+
+.delete-icon:hover {
+    transform: scale(1.1);
+}
+
+.disappear {
+    display: none;
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(3, 0, 28, .6);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.result-section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: .6rem 7rem;
+    border-radius: .8rem;
+    overflow: hidden;
+    box-shadow: 0 0 8px 0 #03001C;
+}
+
+.result-list a {
+    text-decoration: none;
+    color: #03001C;
+}
+
+.result-item {
+    background-color: #FAF8F1;
+    padding: .4rem 1rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: #FAEAB1;
+    }
+
+    & h3 {
+        margin-right: .4rem;
+    }
+}
+
+.people-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+    }
+}
+
+.people-gender {
+    margin-right: 1rem;
+}

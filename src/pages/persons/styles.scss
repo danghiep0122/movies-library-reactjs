@@ -7,7 +7,49 @@
 .inner-content {
     width: 100%;
     max-width: 1400px;
-    padding: 2rem;
+    padding: 0 2rem;
+}
+
+.search-people-section {
+    height: 360px;
+    width: 100%;
+    position: relative
+}
+    
+.image-wrapper {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    
+    z-index: -1;
+
+    & img {
+        width: 100%;
+    }
+}
+
+.blur-cover{
+    background-color: rgb(3,37,65, .8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    
+    & h2 {
+        font-size: 3rem;
+        color: aliceblue;
+        padding: .6rem 0;
+        font-weight: 800;
+    }
+
+    & h4 {
+        font-size: 2rem;
+        color: aliceblue;
+        font-weight: 500;
+    }
 }
 
 .page-title {
