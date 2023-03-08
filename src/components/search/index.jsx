@@ -18,12 +18,16 @@ const SearchForm = () => {
       .get(
         `https://api.themoviedb.org/3/search/person?api_key=2feceab83c679d844299e10bff5e391c&language=en-US&query=${keyWord}&page=1&include_adult=false`
       )
-      .then((response) => setAllResult(response.data.results))
+      .then((response) => {
+        const sortedArr = response.data.results.sort((a, b) => b.popularity - a.popularity);
+        setAllResult(sortedArr);
+      })
       .catch((error) => console.log(error));
   };
 
-  const handleClick = () => {
+  const handleOffModal = () => {
     setAllResult([]);
+    setInput('');
   };
 
   useEffect(() => {
@@ -33,26 +37,27 @@ const SearchForm = () => {
     getResults();
   }, [keyWord]);
 
-  console.log(allResult);
-
   return (
-    <section className="search-component">
-      <form onSubmit={(e) => e.preventDefault()} className="seach-form">
-        <input
-          name="text"
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Search all People"
-        />
-        <div className="right-component">
-          <div onClick={handleClick} className="delete-icon">
-            <DeleteBtn height="1rem" width="1rem" />
+    <main>
+      <section className="search-component">
+        <div className={allResult.length === 0 ? 'disappear' : 'modal'} onClick={handleOffModal} />
+        <form onSubmit={(e) => e.preventDefault()} className="seach-form">
+          <input
+            name="text"
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Typing to start Searching ... "
+          />
+          <div className="right-component">
+            <div onClick={handleOffModal} className="delete-icon">
+              <DeleteBtn height="1.6rem" width="1.6rem" fill="#30475E" />
+            </div>
+            <button>Search</button>
           </div>
-          <button>Search</button>
-        </div>
-      </form>
-      <div>
+        </form>
+      </section>
+      <section className="people-result">
         <div className={allResult.length === 0 ? 'disappear' : 'result-section'}>
           <ul className="result-list">
             {allResult.map((people) => (
@@ -62,7 +67,7 @@ const SearchForm = () => {
                     {people.profile_path ? (
                       <img src={`https://image.tmdb.org/t/p/w500/${people.profile_path}`} alt="" />
                     ) : (
-                      <QuestionMarkIcon fill="#333" />
+                      <QuestionMarkIcon height="40" width="40" fill="#333" />
                     )}
                   </div>
                   <h3>{people.name}</h3>
@@ -79,8 +84,8 @@ const SearchForm = () => {
             ))}
           </ul>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

@@ -1,9 +1,4 @@
-export const DeleteBtn = ({
-  className,
-  height = '3.2rem',
-  width = '3.2rem',
-  fill = 'currentColor'
-}) => (
+export const DeleteBtn = ({ className, height = '3.2rem', width = '3.2rem', fill = 'fill' }) => (
   <svg
     className={className}
     xmlns="http://www.w3.org/2000/svg"
