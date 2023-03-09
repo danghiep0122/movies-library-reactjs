@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  WebsiteIcon
+} from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
 // import Pie from '../../components/pieChart/PieChart';
@@ -98,17 +104,26 @@ export default function MovieDetail() {
               <div className="toolkit">
                 <ul>
                   <li>
-                    <a href="#">Facebook</a>
+                    <a href="#">
+                      <FacebookIcon fill="#2d86ff" height="24" width="24" />
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Instagram</a>
+                    <a href="#">
+                      <InstagramIcon fill="#833AB4" height="24" width="24" />
+                    </a>
                   </li>
                   <li>
-                    <a href="#">IMDB</a>
+                    <a href="#">
+                      <TwitterIcon fill="#1d9bf0" height="24" width="24" />
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Website</a>
+                    <a href="#">
+                      <WebsiteIcon height="24" width="24" />
+                    </a>
                   </li>
+
                   <li>
                     <a href="#">
                       <span>▶ &nbsp;</span>
@@ -144,6 +159,7 @@ export default function MovieDetail() {
           {allCast.map((person) => (
             <li key={person.id}>
               <CastItem
+                gender={person.gender}
                 imgUrl={person.profile_path}
                 name={person.name}
                 character={person.character || person.original_name}
