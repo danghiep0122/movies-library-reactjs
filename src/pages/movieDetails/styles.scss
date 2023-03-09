@@ -1,0 +1,159 @@
+.body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-details {
+  width: 100%;
+  height: 510px;
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
+    rgba(31.5, 31.5, 31.5, 0.84) 50%,
+    rgba(31.5, 31.5, 31.5, 0.84) 100%
+  );
+}
+
+.banner-image {
+  height: 510px;
+  width: auto;
+  overflow: hidden;
+  z-index: -1;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.detail-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  height: 510px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.movie-poster-wrapper img {
+  border-radius: 0.6rem;
+}
+
+.movie-detail {
+  margin-left: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.title-gerne {
+  & h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin: 0.6rem 0;
+  }
+
+  & h3 {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  & span {
+    padding: 0.2rem;
+    color: white;
+    margin-right: 0.6rem;
+  }
+}
+
+.list-toolkits {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.score-area {
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  border-right: 1px solid #999;
+  color: white;
+  font-weight: 800;
+  font-size: larger;
+}
+
+.toolkit {
+  flex: 1;
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    padding: 2rem 1rem;
+  }
+
+  & a {
+    display: flex;
+  }
+}
+
+.quote-line {
+  font-style: italic;
+  padding: 1rem 0;
+  color: white;
+}
+
+.overview-section {
+  padding-bottom: 0.6rem;
+  max-height: 150px;
+  overflow-y: scroll;
+  color: white;
+
+  & h3 {
+    color: white;
+    font-size: larger;
+    padding-bottom: 0.4rem;
+  }
+}
+
+.crew-section {
+  padding-top: 1rem;
+  color: white;
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    padding-right: 4rem;
+  }
+
+  & h2 {
+    font-size: larger;
+    padding-bottom: 0.2rem;
+  }
+
+  & h4 {
+    font-size: smaller;
+    font-weight: 400;
+  }
+}
+
+.cast-details {
+  width: 100%;
+  max-width: 1400px;
+}
+.cast-details-title {
+  padding: 1rem;
+}
+
+.list-cast {
+  max-width: 1400px;
+  display: flex;
+  padding: 1rem 0.2rem;
+  gap: 2rem;
+  overflow-x: scroll;
+}

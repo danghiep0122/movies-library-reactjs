@@ -5,8 +5,8 @@ const cleanPercentage = (percentage) => {
   return notRated ? '0' : tooLow ? 0 : tooHigh ? 100 : +percentage;
 };
 
-const Circle = ({ colour, pct }) => {
-  const r = 20;
+const Circle = ({ colour, pct, rInput }) => {
+  const r = rInput;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   return (
@@ -19,7 +19,8 @@ const Circle = ({ colour, pct }) => {
       strokeWidth={'4px'}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
-      strokeLinecap="round"></circle>
+      strokeLinecap="round"
+    ></circle>
   );
 };
 
@@ -32,20 +33,21 @@ const Text = ({ percentage, fontSize }) => {
       textAnchor="middle"
       fill="#ECF9FF"
       fontSize={fontSize}
-      fontWeight={700}>
+      fontWeight={700}
+    >
       {typeof percentage !== 'number' ? 'NR' : percentage.toFixed(0)}
     </text>
   );
 };
 
-const Pie = ({ percentage = 0, fontSize = '1.2rem' }) => {
+const Pie = ({ percentage = 0, fontSize = '1.2rem', size }) => {
   const pct = cleanPercentage(percentage);
   return (
     <svg width={100} height={100}>
       <g transform={`rotate(-90 ${'50 50'})`}>
         <Circle colour="transparent" />
         <Circle
-          // rInput={size}
+          rInput={size}
           colour={percentage < 36 ? '#FF1700' : percentage < 76 ? '#FFE400' : '#06FF00'}
           pct={pct}
         />

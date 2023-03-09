@@ -1,0 +1,33 @@
+.cast-item {
+  width: 138px;
+  box-shadow: 0 0 8px 0 #215487;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.cast-img {
+  height: 175px;
+  width: 100%;
+  box-shadow: 0 0 8px 0 #999;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.cast-info {
+  padding: 0.4rem;
+  height: 82px;
+  overflow: hidden;
+
+  & h3 {
+    font-size: large;
+    padding: 0.4rem 0;
+  }
+
+  & h4 {
+    font-size: smaller;
+    font-weight: 400;
+  }
+}

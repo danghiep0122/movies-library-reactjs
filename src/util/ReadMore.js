@@ -7,7 +7,7 @@ export const ReadMore = ({ children }) => {
     setIsMore(!isMore);
   };
   return (
-    <p style={{ lineHeight: 1.4, fontSize: 'medium' }}>
+    <span style={{ lineHeight: 1.4, fontSize: 'medium' }}>
       {isMore ? text.slice(0, 256) : text}
       <span
         style={
@@ -19,6 +19,6 @@ export const ReadMore = ({ children }) => {
       >
         {isMore ? '...read more' : 'show less'}
       </span>
-    </p>
+    </span>
   );
 };
