@@ -1,0 +1,47 @@
+.credit-recommend-wrapper {
+  overflow: hidden;
+}
+
+.credit-img {
+  border-radius: 0.6rem;
+  position: relative;
+  width: 250px;
+  height: 140px;
+  box-shadow: 0 0 8px 0 #999;
+  cursor: pointer;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
+
+  &:hover {
+    .date-release {
+      transform: translateY(0);
+    }
+  }
+}
+
+.date-release {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transform: translateY(2.2rem);
+  display: flex;
+  justify-content: center;
+  padding: 0.6rem;
+  background-color: rgba($color: #fff, $alpha: 0.8);
+}
+
+.credit-details {
+  display: flex;
+  padding: 0.8rem 0;
+  justify-content: space-between;
+
+  & h3 {
+    width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

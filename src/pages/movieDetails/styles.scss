@@ -35,7 +35,7 @@
   position: absolute;
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .movie-poster-wrapper img {
@@ -150,10 +150,16 @@
   padding: 1rem;
 }
 
-.list-cast {
+.list-cast,
+.credit-list {
   max-width: 1400px;
   display: flex;
   padding: 1rem 0.2rem;
   gap: 2rem;
   overflow-x: scroll;
+
+  & a {
+    text-decoration: none;
+    color: #111;
+  }
 }

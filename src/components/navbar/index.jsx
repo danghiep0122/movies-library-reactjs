@@ -19,7 +19,7 @@ export default function NavBar() {
             <Link to={'/toptrending'}>Top Trending</Link>
           </li>
           <li>
-            <Link to={'/movie/1'}>Movie Detail</Link>
+            <Link to={'/movie/597'}>Movie Detail</Link>
           </li>
           <li>
             <Link to={'/tvshow'}>TV Show</Link>

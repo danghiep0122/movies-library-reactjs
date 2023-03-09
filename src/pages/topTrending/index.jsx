@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import CreditItem from '../../components/creditItem';
+import { Link } from 'react-router-dom';
 
 export default function TopTrending() {
   const [allMovies, setAllMovies] = useState([]);
@@ -31,13 +32,14 @@ export default function TopTrending() {
         <section className="inner-content">
           {allMovies &&
             allMovies.map((item) => (
-              <CreditItem
-                key={item.id}
-                title={item.name}
-                dayRelease={item.first_air_date}
-                vote={item.vote_average * 10}
-                imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-              />
+              <Link key={item.id} to={`../movie/${item.id}`}>
+                <CreditItem
+                  title={item.name}
+                  dayRelease={item.first_air_date}
+                  vote={item.vote_average * 10}
+                  imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                />
+              </Link>
             ))}
         </section>
         <section className="loadmore">

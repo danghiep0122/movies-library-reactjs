@@ -1,29 +1,32 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import CastItem from '../../components/castItem';
+import CreditRecommend from '../../components/creditRecommend';
 // import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
 
 export default function MovieDetail() {
   const [movieData, setMovieData] = useState([]);
+  const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
 
+  const { movieId } = useParams();
+
   const apiKey = process.env.REACT_APP_API_KEY;
-  // const link =
-  //   'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US';
 
   const getMovieData = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/10483?api_key=${apiKey}&language=en-US`)
+      .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
       .then((res) => setMovieData(res.data))
       .catch((error) => console.log(error));
   };
 
   const getMovieCast = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/10483/credits?api_key=${apiKey}&language=en-US`)
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`)
       .then((res) => {
         setAllCrew(res.data.crew.slice(0, 6));
         setAllCast(res.data.cast.sort((a, b) => b.popularity - a.popularity));
@@ -34,10 +37,10 @@ export default function MovieDetail() {
   const getMovieRecommend = async () => {
     await axios
       .get(
-        `https://api.themoviedb.org/3/movie/10483/recommendations?api_key=${apiKey}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
       )
       .then((res) => {
-        console.log(res.data.results);
+        setCreditRecommend(res.data.results);
       })
       .catch((error) => console.log(error));
   };
@@ -46,9 +49,9 @@ export default function MovieDetail() {
     getMovieData();
     getMovieCast();
     getMovieRecommend();
-  }, []);
+  }, [movieId]);
 
-  console.log(allCrew);
+  console.log(creditRecommend);
   return (
     <main className="body-content">
       <section>
@@ -75,7 +78,11 @@ export default function MovieDetail() {
               </h2>
               <h3>
                 <span>TV-MA</span>
-                <span>{`${movieData.release_date} (${movieData.original_language})`}</span>
+                <span
+                  style={{
+                    textTransform: 'uppercase'
+                  }}
+                >{`${movieData.release_date} (${movieData.original_language})`}</span>
                 {`Drama, Action & Adventure ⏲ ${movieData.runtime}m`}
               </h3>
             </div>
@@ -141,6 +148,23 @@ export default function MovieDetail() {
                 name={person.name}
                 character={person.character || person.original_name}
               />
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="recommend-list">
+        <h3 className="cast-details-title">Recommend Movie</h3>
+        <ul className="credit-list">
+          {creditRecommend.map((credit) => (
+            <li key={credit.id}>
+              <Link to={`/movie/${credit.id}`}>
+                <CreditRecommend
+                  name={credit.title}
+                  score={credit.vote_average}
+                  release={credit.release_date}
+                  imgUrl={credit.backdrop_path}
+                />
+              </Link>
             </li>
           ))}
         </ul>
