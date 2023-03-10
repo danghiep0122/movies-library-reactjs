@@ -21,8 +21,6 @@ export default function TopTrending() {
     getAllMovies();
   }, []);
 
-  // console.log(allMovies);
-
   return (
     <main className="top-trending-page">
       <div className="content-container">
