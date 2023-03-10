@@ -7,14 +7,14 @@ import CreditItem from '../../components/creditItem';
 
 import './styles.scss';
 
-export default function TopRatedLayOut() {
+export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie' }) {
   const [creditList, setCreditList] = useState([]);
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const getCreditList = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+      .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => {
         const result = response.data.results;
         setCreditList(result.sort((a, b) => b.vote_average - a.vote_average));
@@ -24,13 +24,13 @@ export default function TopRatedLayOut() {
 
   useEffect(() => {
     getCreditList();
-  }, []);
+  }, [type]);
 
   return (
     <main className="top-trending-page">
       <div className="content-container">
         <section className="page-title">
-          <h2>page title</h2>
+          <h2>{pageTitle}</h2>
         </section>
         <section className="inner-content">
           {creditList.map((item) => (
