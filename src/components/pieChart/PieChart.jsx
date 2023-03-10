@@ -5,19 +5,18 @@ const cleanPercentage = (percentage) => {
   return notRated ? '0' : tooLow ? 0 : tooHigh ? 100 : +percentage;
 };
 
-const Circle = ({ colour, pct, rInput }) => {
-  const r = rInput;
-  const circ = 2 * Math.PI * r;
+const Circle = ({ colour, pct, rInput, width }) => {
+  const circ = 2 * Math.PI * rInput;
   const strokePct = ((100 - pct) * circ) / 100;
   return (
     <circle
-      r={r}
+      r={rInput}
       cx={50}
       cy={50}
-      fill="#293462"
+      fill="#160040"
       stroke={strokePct !== circ ? colour : ''} // remove colour as 0% sets full circumference
-      strokeWidth={'4px'}
-      strokeDasharray={circ}
+      strokeWidth={width}
+      strokeDasharray={Number(circ) || 0}
       strokeDashoffset={pct ? strokePct : 0}
       strokeLinecap="round"
     ></circle>
@@ -31,7 +30,7 @@ const Text = ({ percentage, fontSize }) => {
       y="50%"
       dominantBaseline="central"
       textAnchor="middle"
-      fill="#ECF9FF"
+      fill="white"
       fontSize={fontSize}
       fontWeight={700}
     >
@@ -40,13 +39,13 @@ const Text = ({ percentage, fontSize }) => {
   );
 };
 
-const Pie = ({ percentage = 0, fontSize = '1.2rem', size }) => {
+const Pie = ({ percentage = 0, fontSize = '1.2rem', size = '1rem', width = '6px' }) => {
   const pct = cleanPercentage(percentage);
   return (
     <svg width={100} height={100}>
       <g transform={`rotate(-90 ${'50 50'})`}>
-        <Circle colour="transparent" />
         <Circle
+          width={width}
           rInput={size}
           colour={percentage < 36 ? '#FF1700' : percentage < 76 ? '#FFE400' : '#06FF00'}
           pct={pct}

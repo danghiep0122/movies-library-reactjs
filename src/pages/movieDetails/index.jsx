@@ -1,20 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TwitterIcon,
-  WebsiteIcon
-} from '../../assets/img/icon/allIcon';
+import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
-// import Pie from '../../components/pieChart/PieChart';
+import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
 
 export default function MovieDetail() {
   const [movieData, setMovieData] = useState([]);
+  const [externalData, setExternalData] = useState([]);
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
@@ -40,6 +36,15 @@ export default function MovieDetail() {
       .catch((error) => console.log(error));
   };
 
+  const getExternalData = async () => {
+    await axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/external_ids?api_key=${apiKey}`)
+      .then((res) => {
+        setExternalData(res.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
   const getMovieRecommend = async () => {
     await axios
       .get(
@@ -53,11 +58,16 @@ export default function MovieDetail() {
 
   useEffect(() => {
     getMovieData();
+    getExternalData();
     getMovieCast();
     getMovieRecommend();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }, [movieId]);
 
-  console.log(creditRecommend);
   return (
     <main className="body-content">
       <section>
@@ -80,7 +90,8 @@ export default function MovieDetail() {
           <div className="movie-detail">
             <div className="title-gerne">
               <h2>
-                {movieData.title} {movieData.original_title && `(${movieData.original_title})`}
+                {movieData.title}{' '}
+                {movieData.original_title !== movieData.title && `(${movieData.original_title})`}
               </h2>
               <h3>
                 <span>TV-MA</span>
@@ -94,9 +105,9 @@ export default function MovieDetail() {
             </div>
             <div className="list-toolkits">
               <div className="score-area">
-                <p className="score-point">
-                  {/* <Pie percentage={movieData.vote_average * 10} size={40} /> */}
-                </p>
+                <span className="score-point">
+                  <Pie percentage={movieData.vote_average * 10} size={35} fontSize={'2.2rem'} />
+                </span>
                 <span>
                   User <br /> Score
                 </span>
@@ -104,30 +115,51 @@ export default function MovieDetail() {
               <div className="toolkit">
                 <ul>
                   <li>
-                    <a href="#">
-                      <FacebookIcon fill="#2d86ff" height="24" width="24" />
+                    <a
+                      className={externalData.facebook_id ? '' : 'disabled'}
+                      href={`https://www.facebook.com/${externalData.facebook_id}`}
+                    >
+                      <FacebookIcon
+                        fill={externalData.facebook_id ? '#2d86ff' : '#333'}
+                        height="24"
+                        width="24"
+                      />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <InstagramIcon fill="#833AB4" height="24" width="24" />
+                    <a
+                      className={externalData.instagram_id ? '' : 'disabled'}
+                      href={`https://www.instagram.com/${externalData.instagram_id}`}
+                    >
+                      <InstagramIcon
+                        fill={externalData.instagram_id ? '#fcaf45' : '#333'}
+                        height="24"
+                        width="24"
+                      />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <TwitterIcon fill="#1d9bf0" height="24" width="24" />
+                    <a
+                      className={externalData.twitter_id ? '' : 'disabled'}
+                      href={`https://www.twitter.com/${externalData.twitter_id}`}
+                    >
+                      <TwitterIcon
+                        fill={externalData.twitter_id ? '#2d86ff' : '#333'}
+                        height="24"
+                        width="24"
+                      />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <WebsiteIcon height="24" width="24" />
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="#">
-                      <span>▶ &nbsp;</span>
-                      <p>Play Trailer</p>
+                    <a
+                      className={externalData.imdb_id ? '' : 'disabled'}
+                      href={`https://www.imdb.com/title/${externalData.imdb_id}`}
+                    >
+                      <ImdbIcon
+                        fill={externalData.imdb_id ? '#f5c518' : '#333'}
+                        height="24"
+                        width="24"
+                      />
                     </a>
                   </li>
                 </ul>

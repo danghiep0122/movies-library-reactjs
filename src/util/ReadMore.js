@@ -19,7 +19,7 @@ export const ReadMore = ({ children }) => {
           }
           onClick={toggleReadMore}
         >
-          {isMore ? 'Read more 🔻' : 'Show less'}
+          {isMore ? 'Read more ▼' : 'Show less'}
         </span>
       )}
     </span>
