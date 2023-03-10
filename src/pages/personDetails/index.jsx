@@ -58,7 +58,6 @@ export default function Person() {
     });
   }, []);
 
-  console.log(credits);
   return (
     <main className="person-detail-main">
       <div className="tool">

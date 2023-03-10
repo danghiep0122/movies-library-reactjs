@@ -43,8 +43,6 @@ export default function Persons() {
     getAllPopularPeople();
   }, [pageNo]);
 
-  console.log(banner);
-
   return (
     <main className="people-page">
       <div className="inner-content">

@@ -26,8 +26,6 @@ export default function TopRatedLayOut() {
     getCreditList();
   }, []);
 
-  console.log(creditList);
-
   return (
     <main className="top-trending-page">
       <div className="content-container">
