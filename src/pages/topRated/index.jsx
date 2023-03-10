@@ -1,0 +1,55 @@
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import CreditItem from '../../components/creditItem';
+
+import './styles.scss';
+
+export default function TopRatedLayOut() {
+  const [creditList, setCreditList] = useState([]);
+
+  const apiKey = process.env.REACT_APP_API_KEY;
+
+  const getCreditList = async () => {
+    await axios
+      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+      .then((response) => {
+        const result = response.data.results;
+        setCreditList(result.sort((a, b) => b.vote_average - a.vote_average));
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getCreditList();
+  }, []);
+
+  console.log(creditList);
+
+  return (
+    <main className="top-trending-page">
+      <div className="content-container">
+        <section className="page-title">
+          <h2>page title</h2>
+        </section>
+        <section className="inner-content">
+          {creditList.map((item) => (
+            <Link to={`/movie/${item.id}`} key={item.id}>
+              <CreditItem
+                title={item.name || item.title}
+                dayRelease={item.first_air_date || item.release_date}
+                vote={item.vote_average * 10}
+                imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              />
+            </Link>
+          ))}
+        </section>
+        <section className="loadmore">
+          <button>Load More</button>
+        </section>
+      </div>
+    </main>
+  );
+}
