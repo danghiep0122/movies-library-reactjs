@@ -90,7 +90,7 @@ export default function MovieDetail() {
           <div className="movie-detail">
             <div className="title-gerne">
               <h2>
-                {movieData.title}{' '}
+                {movieData.title || movieData.name}{' '}
                 {movieData.original_title !== movieData.title && `(${movieData.original_title})`}
               </h2>
               <h3>
