@@ -8,27 +8,27 @@ import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
 
-export default function MovieDetail() {
-  const [movieData, setMovieData] = useState([]);
+export default function TvDetails() {
+  const [tvShowData, setTvShowData] = useState([]);
   const [externalData, setExternalData] = useState([]);
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
 
-  const { movieId } = useParams();
+  const { tvId } = useParams();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
-  const getMovieData = async () => {
+  const getTvShowData = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
-      .then((res) => setMovieData(res.data))
+      .get(`https://api.themoviedb.org/3/tv/${tvId}?api_key=${apiKey}&language=en-US`)
+      .then((res) => setTvShowData(res.data))
       .catch((error) => console.log(error));
   };
 
-  const getMovieCast = async () => {
+  const getTvShowCast = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`)
+      .get(`https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=${apiKey}&language=en-US`)
       .then((res) => {
         setAllCrew(res.data.crew.slice(0, 6));
         setAllCast(res.data.cast.sort((a, b) => b.popularity - a.popularity));
@@ -38,17 +38,17 @@ export default function MovieDetail() {
 
   const getExternalData = async () => {
     await axios
-      .get(`https://api.themoviedb.org/3/movie/${movieId}/external_ids?api_key=${apiKey}`)
+      .get(`https://api.themoviedb.org/3/tv/${tvId}/external_ids?api_key=${apiKey}`)
       .then((res) => {
         setExternalData(res.data);
       })
       .catch((error) => console.log(error));
   };
 
-  const getMovieRecommend = async () => {
+  const getTvShowRecommend = async () => {
     await axios
       .get(
-        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/tv/${tvId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
       )
       .then((res) => {
         setCreditRecommend(res.data.results);
@@ -57,16 +57,17 @@ export default function MovieDetail() {
   };
 
   useEffect(() => {
-    getMovieData();
+    getTvShowData();
     getExternalData();
-    getMovieCast();
-    getMovieRecommend();
+    getTvShowCast();
+    getTvShowRecommend();
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
-  }, [movieId]);
+  }, [tvId]);
+
   return (
     <main className="body-content">
       <section>
@@ -75,22 +76,22 @@ export default function MovieDetail() {
       <section className="movie-details">
         <div className="banner-image">
           <img
-            src={`https://www.themoviedb.org/t/p/original${movieData.backdrop_path}`}
-            alt={movieData.title}
+            src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
+            alt={tvShowData.title}
           />
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
             <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieData.poster_path}`}
-              alt={movieData.title}
+              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
+              alt={tvShowData.title}
             />
           </div>
           <div className="movie-detail">
             <div className="title-gerne">
               <h2>
-                {movieData.title || movieData.name}{' '}
-                {movieData.original_title !== movieData.title && `(${movieData.original_title})`}
+                {tvShowData.title || tvShowData.name}{' '}
+                {tvShowData.original_title !== tvShowData.title && `(${tvShowData.original_title})`}
               </h2>
               <h3>
                 <span>TV-MA</span>
@@ -98,14 +99,14 @@ export default function MovieDetail() {
                   style={{
                     textTransform: 'uppercase'
                   }}
-                >{`${movieData.release_date} (${movieData.original_language})`}</span>
-                {`Drama, Action & Adventure ⏲ ${movieData.runtime}m`}
+                >{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
+                {`Drama, Action & Adventure ⏲ ${tvShowData.runtime}m`}
               </h3>
             </div>
             <div className="list-toolkits">
               <div className="score-area">
                 <span className="score-point">
-                  <Pie percentage={movieData.vote_average * 10} size={35} fontSize={'2.2rem'} />
+                  <Pie percentage={tvShowData.vote_average * 10} size={35} fontSize={'2.2rem'} />
                 </span>
                 <span>
                   User <br /> Score
@@ -164,11 +165,11 @@ export default function MovieDetail() {
                 </ul>
               </div>
             </div>
-            <div className="quote-line">{movieData.tagline}</div>
+            <div className="quote-line">{tvShowData.tagline}</div>
             <div className="overview-section">
               <h3>Overview</h3>
               <p>
-                <ReadMore>{movieData.overview || ''}</ReadMore>
+                <ReadMore>{tvShowData.overview || ''}</ReadMore>
               </p>
             </div>
             <div className="crew-section">
@@ -188,14 +189,14 @@ export default function MovieDetail() {
         <h3 className="cast-details-title">Top Billed Cast</h3>
         <ul className="list-cast">
           {allCast.map((person) => (
-            <li key={person.cast_id}>
+            <Link to={`/person/${person.id}`} key={person.id}>
               <CastItem
                 gender={person.gender}
                 imgUrl={person.profile_path}
                 name={person.name}
                 character={person.character || person.original_name}
               />
-            </li>
+            </Link>
           ))}
         </ul>
       </section>
@@ -204,11 +205,11 @@ export default function MovieDetail() {
         <ul className="credit-list">
           {creditRecommend.map((credit) => (
             <li key={credit.id}>
-              <Link to={`/movie/${credit.id}`}>
+              <Link to={`/tv/${credit.id}`}>
                 <CreditRecommend
-                  name={credit.title}
+                  name={credit.title || credit.name}
                   score={credit.vote_average}
-                  release={credit.release_date}
+                  release={credit.release_date || credit.first_air_date}
                   imgUrl={credit.backdrop_path}
                 />
               </Link>

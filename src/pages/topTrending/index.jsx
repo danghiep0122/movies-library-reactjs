@@ -28,17 +28,16 @@ export default function TopTrending({ pageTitle = 'Top Treding', type = 'tv' }) 
           <h2>{pageTitle}</h2>
         </section>
         <section className="inner-content">
-          {allCredits &&
-            allCredits.map((item) => (
-              <Link key={item.id} to={`../${type}/${item.id}`}>
-                <CreditItem
-                  title={item.name || item.title}
-                  dayRelease={item.first_air_date || item.release_date}
-                  vote={item.vote_average * 10}
-                  imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                />
-              </Link>
-            ))}
+          {allCredits.map((item) => (
+            <Link key={item.id} to={`../${type}/${item.id}`}>
+              <CreditItem
+                title={item.name || item.title}
+                dayRelease={item.first_air_date || item.release_date}
+                vote={item.vote_average * 10}
+                imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              />
+            </Link>
+          ))}
         </section>
         <section className="loadmore">
           <button>Load More</button>
