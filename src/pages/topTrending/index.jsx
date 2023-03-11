@@ -6,19 +6,19 @@ import CreditItem from '../../components/creditItem';
 import { Link } from 'react-router-dom';
 
 export default function TopTrending({ pageTitle = 'Top Treding', type = 'tv' }) {
-  const [allMovies, setAllMovies] = useState([]);
+  const [allCredits, setAllCredits] = useState([]);
 
-  const getAllMovies = async () => {
+  const getallCredits = async () => {
     await axios
       .get(
         `https://api.themoviedb.org/3/${type}/popular?api_key=2feceab83c679d844299e10bff5e391c&language=en-US&page=1`
       )
-      .then((response) => setAllMovies(response.data.results))
+      .then((response) => setAllCredits(response.data.results))
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    getAllMovies();
+    getallCredits();
   }, [type]);
 
   return (
@@ -28,12 +28,12 @@ export default function TopTrending({ pageTitle = 'Top Treding', type = 'tv' }) 
           <h2>{pageTitle}</h2>
         </section>
         <section className="inner-content">
-          {allMovies &&
-            allMovies.map((item) => (
-              <Link key={item.id} to={`../movie/${item.id}`}>
+          {allCredits &&
+            allCredits.map((item) => (
+              <Link key={item.id} to={`../${type}/${item.id}`}>
                 <CreditItem
-                  title={item.name}
-                  dayRelease={item.first_air_date}
+                  title={item.name || item.title}
+                  dayRelease={item.first_air_date || item.release_date}
                   vote={item.vote_average * 10}
                   imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 />

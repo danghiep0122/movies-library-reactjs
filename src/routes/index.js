@@ -29,7 +29,6 @@ export default function AllRoutes() {
           <Route path="/tv" element={<TvShow />} />
 
           {/* change to TVShowDetail */}
-
           <Route path="/tv/:tvId" element={<MovieDetail />} />
           <Route
             path="/tv/topRated"

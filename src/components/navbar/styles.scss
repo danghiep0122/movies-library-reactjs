@@ -1,53 +1,42 @@
 nav {
+  background-color: #edf5fe;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar-wrapper {
+  flex: 1;
+  padding: 0.4rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4rem 1rem;
-  background-color: #edf5fe;
+  max-width: 1400px;
 }
 
-.navigator-section {
+.dropdown-selection {
   flex: 1;
-}
-
-.navigator-list {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  & a {
-    text-decoration: none;
-    color: rgb(37, 57, 92, 0.8);
-    font-size: x-large;
-    font-weight: 700;
-    transition: all ease 0.2s;
-  }
-
-  & a:hover {
-    color: rgb(37, 57, 92);
-    cursor: pointer;
-  }
+  padding: 0 2rem;
 }
 
-.main {
-  display: flex;
-}
-
-.father {
+.type-section {
   position: relative;
-  margin: 0 0.2rem;
-  border: 1px solid red;
+  margin: 0 1rem;
 }
 
-.brother {
-  padding: 0.4rem 1rem;
+.type-title {
+  color: rgb(37, 57, 92, 0.8);
+  padding: .6rem 1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.brother:hover ~ .son {
+.type-title:hover ~ .type-selection {
   display: flex;
 }
 
-.brother::after {
+.type-title::after {
   position: absolute;
   bottom: -1rem;
   left: 0;
@@ -56,26 +45,31 @@ nav {
   height: 1rem;
 }
 
-.son {
-  border: 1px solid violet;
+.type-selection {
+  box-shadow: 0 0 8px 0 #888;
   position: absolute;
   left: 0;
-  top: 2.4rem;
+  top: 2.8rem;
   background-color: white;
   display: none;
   flex-direction: column;
   z-index: 2;
+  padding: 0.4rem 0;
+  border-radius: .6rem;
 
   &:hover {
     display: flex;
   }
 }
 
-.son a {
-  padding: 0.4rem;
-  cursor: pointer;
+.type-selection a {
+  width: 220px;
+  padding: 1rem 2rem;
+  font-size: larger;
+  transition: all ease-in .2s;
+  font-weight: 600;
 
   &:hover {
-    background-color: #333;
+    background-color: #999;
   }
 }
