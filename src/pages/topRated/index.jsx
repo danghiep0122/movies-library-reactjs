@@ -34,7 +34,7 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
         </section>
         <section className="inner-content">
           {creditList.map((item) => (
-            <Link to={`/movie/${item.id}`} key={item.id}>
+            <Link to={`/${type}/${item.id}`} key={item.id}>
               <CreditItem
                 title={item.name || item.title}
                 dayRelease={item.first_air_date || item.release_date}
