@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import './styles.scss';
 import { ReadMore } from '../../util/ReadMore';
@@ -9,8 +9,7 @@ import {
   TwitterIcon,
   InstagramIcon,
   ImdbIcon,
-  MaleIcon,
-  FemaleIcon
+  UserIcon
 } from '../../assets/img/icon/allIcon';
 
 export default function Person() {
@@ -43,7 +42,7 @@ export default function Person() {
   const getAllCredits = async () => {
     await axios
       .get(urlCredits)
-      .then((res) => setCredits(res.data.cast))
+      .then((res) => setCredits(res.data.cast.filter((item) => item.poster_path)))
       .catch((error) => console.log(error));
   };
 
@@ -73,35 +72,41 @@ export default function Person() {
                   alt="profile Name"
                 />
               ) : (
-                <div>
-                  {persondata.gender === 2 ? (
-                    <MaleIcon width="200" height="200" fill="blue" />
-                  ) : (
-                    <FemaleIcon width="200" height="200" fill="pink" />
-                  )}
-                </div>
+                <div>{<UserIcon width="250" height="250" />}</div>
               )}
             </div>
             <div>
               <ul className="social-logo">
-                <li>
+                <li className={social.facebook_id ? '' : 'disabled'}>
                   <a href={`https://fb.com/${social.facebook_id}`}>
-                    <FacebookIcon height="2rem" width="2rem" />
+                    <FacebookIcon
+                      height="2rem"
+                      width="2rem"
+                      fill={social.facebook_id ? '#0165E1' : ''}
+                    />
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    <TwitterIcon height="2rem" width="2rem" />
+                <li className={social.twitter_id ? '' : 'disabled'}>
+                  <a href={`https://twitter.com/${social.twitter_id}`}>
+                    <TwitterIcon
+                      height="2rem"
+                      width="2rem"
+                      fill={social.twitter_id ? '#1D9BF0' : ''}
+                    />
                   </a>
                 </li>
-                <li>
+                <li className={social.instagram_id ? '' : 'disabled'}>
                   <a href={`https://instagram.com/${social.instagram_id}`}>
-                    <InstagramIcon height="2rem" width="2rem" />
+                    <InstagramIcon
+                      height="2rem"
+                      width="2rem"
+                      fill={social.instagram_id ? '#405de6' : ''}
+                    />
                   </a>
                 </li>
-                <li>
+                <li className={social.imdb_id ? '' : 'disabled'}>
                   <a href={`https://www.imdb.com/name/${social.imdb_id}`}>
-                    <ImdbIcon height="2rem" width="2rem" />
+                    <ImdbIcon height="2rem" width="2rem" fill={social.imdb_id ? '#DBA506' : ''} />
                   </a>
                 </li>
               </ul>
@@ -148,19 +153,17 @@ export default function Person() {
                 <ul>
                   {credits.slice(0, 10).map((item) => (
                     <li key={item.id}>
-                      <div className="movie-tv-item">
-                        <div className="item-img">
-                          <img
-                            src={
-                              (item.poster_path &&
-                                `https://image.tmdb.org/t/p/w500/${item.poster_path}`) ||
-                              'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
-                            }
-                            alt="Movie Poster"
-                          />
+                      <Link to={`/movie/${item.id}`}>
+                        <div className="movie-tv-item">
+                          <div className="item-img">
+                            <img
+                              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                              alt="Movie Poster"
+                            />
+                          </div>
+                          <h4>{item.title || item.name}</h4>
                         </div>
-                        <h4>{item.title || item.name}</h4>
-                      </div>
+                      </Link>
                     </li>
                   ))}
                 </ul>
