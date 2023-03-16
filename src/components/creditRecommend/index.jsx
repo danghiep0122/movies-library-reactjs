@@ -18,7 +18,7 @@ export default function CreditRecommend({ name, score, imgUrl, release }) {
           {release}
         </div>
       </div>
-      <div className="credit-details">
+      <div className="credit-item-details">
         <h3>{name}</h3>
         <p>
           <ToPercentage>{score}</ToPercentage>%

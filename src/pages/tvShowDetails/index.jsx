@@ -73,21 +73,25 @@ export default function TvDetails() {
       <section>
         <div>Some feature</div>
       </section>
-      <section className="movie-details">
+      <section className="credit-details">
         <div className="banner-image">
-          <img
-            src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
-            alt={tvShowData.title}
-          />
+          {tvShowData.backdrop_path && (
+            <img
+              src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
+              alt={tvShowData.title}
+            />
+          )}
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
-            <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
-              alt={tvShowData.title}
-            />
+            {tvShowData.poster_path && (
+              <img
+                src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
+                alt={tvShowData.title}
+              />
+            )}
           </div>
-          <div className="movie-detail">
+          <div className="credit-detail">
             <div className="title-gerne">
               <h2>
                 {tvShowData.title || tvShowData.name}{' '}
@@ -201,7 +205,7 @@ export default function TvDetails() {
         </ul>
       </section>
       <section className="recommend-list">
-        <h3 className="cast-details-title">Recommend Movie</h3>
+        <h3 className="cast-details-title">Recommend TV Shows</h3>
         <ul className="credit-list">
           {creditRecommend.map((credit) => (
             <li key={credit.id}>
