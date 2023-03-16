@@ -14,6 +14,7 @@ export default function TvDetails() {
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
+  const [latestSeason, setLatestSeason] = useState({});
 
   const { tvId } = useParams();
 
@@ -22,7 +23,10 @@ export default function TvDetails() {
   const getTvShowData = async () => {
     await axios
       .get(`https://api.themoviedb.org/3/tv/${tvId}?api_key=${apiKey}&language=en-US`)
-      .then((res) => setTvShowData(res.data))
+      .then((res) => {
+        setTvShowData(res.data);
+        setLatestSeason(res.data.seasons.pop());
+      })
       .catch((error) => console.log(error));
   };
 
@@ -169,7 +173,7 @@ export default function TvDetails() {
             <div className="overview-section">
               <h3>Overview</h3>
               <p>
-                <ReadMore>{tvShowData.overview || ''}</ReadMore>
+                <ReadMore>{tvShowData.overview}</ReadMore>
               </p>
             </div>
             <div className="crew-section">
@@ -199,6 +203,29 @@ export default function TvDetails() {
             </Link>
           ))}
         </ul>
+      </section>
+      <section className="latest-season">
+        <h2>Current Season</h2>
+        <div className="season-overview">
+          <div className="season-poster-wrapper">
+            <img src={`https://www.themoviedb.org/t/p/w300${latestSeason.poster_path}`} alt="" />
+          </div>
+          <div className="latest-season-details">
+            <h3>{`${latestSeason.name}`}</h3>
+            <h4>
+              <span>{latestSeason.air_date}</span>
+              <span>{` | `}</span>
+              <span>{latestSeason.episode_count}</span>
+              <span> Episodes</span>
+            </h4>
+            <p>
+              <ReadMore>{latestSeason.overview}</ReadMore>
+            </p>
+          </div>
+        </div>
+        <div className="link-to-season-page">
+          <Link to={`/tv/${tvId}/seasons`}>View All Seasons</Link>
+        </div>
       </section>
       <section className="recommend-list">
         <h3 className="cast-details-title">Recommend Movie</h3>

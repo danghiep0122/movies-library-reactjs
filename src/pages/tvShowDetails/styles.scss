@@ -1,0 +1,56 @@
+.latest-season {
+  width: 100%;
+  padding: 1rem;
+  max-width: 1400px;
+
+  & h2 {
+    padding: 1rem;
+  }
+}
+
+.season-overview {
+  display: flex;
+  box-shadow: 0 0 8px 0 black;
+}
+
+.season-poster-wrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 140px;
+    height: 200px;
+    object-fit: fill;
+  }
+}
+
+.latest-season-details {
+  flex: 1;
+  padding: 1rem;
+
+  & h3 {
+    font-size: larger;
+    margin-bottom: 1rem;
+  }
+
+  & h4 {
+    font-size: large;
+    margin-bottom: 0.4rem;
+  }
+
+  & p {
+    font-size: medium;
+    line-height: 1.2rem;
+  }
+}
+
+.link-to-season-page {
+  font-size: large;
+  font-weight: 800;
+  padding: 1rem;
+
+  &:hover {
+    transform: translateX(2px);
+  }
+}
