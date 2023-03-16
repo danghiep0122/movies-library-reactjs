@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  ImdbIcon,
+  PrimaryShortLogo
+} from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
 import Pie from '../../components/pieChart/PieChart';
@@ -79,17 +85,21 @@ export default function TvDetails() {
       </section>
       <section className="movie-details">
         <div className="banner-image">
-          <img
-            src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
-            alt={tvShowData.title}
-          />
+          {tvShowData.backdrop_path && (
+            <img
+              src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
+              alt={tvShowData.title}
+            />
+          )}
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
-            <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
-              alt={tvShowData.title}
-            />
+            {tvShowData.poster_path && (
+              <img
+                src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
+                alt={tvShowData.title}
+              />
+            )}
           </div>
           <div className="movie-detail">
             <div className="title-gerne">
@@ -102,8 +112,7 @@ export default function TvDetails() {
                 <span
                   style={{
                     textTransform: 'uppercase'
-                  }}
-                >{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
+                  }}>{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
                 {`Drama, Action & Adventure ⏲ ${tvShowData.runtime}m`}
               </h3>
             </div>
@@ -121,8 +130,7 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.facebook_id ? '' : 'disabled'}
-                      href={`https://www.facebook.com/${externalData.facebook_id}`}
-                    >
+                      href={`https://www.facebook.com/${externalData.facebook_id}`}>
                       <FacebookIcon
                         fill={externalData.facebook_id ? '#2d86ff' : '#333'}
                         height="24"
@@ -133,8 +141,7 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.instagram_id ? '' : 'disabled'}
-                      href={`https://www.instagram.com/${externalData.instagram_id}`}
-                    >
+                      href={`https://www.instagram.com/${externalData.instagram_id}`}>
                       <InstagramIcon
                         fill={externalData.instagram_id ? '#fcaf45' : '#333'}
                         height="24"
@@ -145,8 +152,7 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.twitter_id ? '' : 'disabled'}
-                      href={`https://www.twitter.com/${externalData.twitter_id}`}
-                    >
+                      href={`https://www.twitter.com/${externalData.twitter_id}`}>
                       <TwitterIcon
                         fill={externalData.twitter_id ? '#2d86ff' : '#333'}
                         height="24"
@@ -157,8 +163,7 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.imdb_id ? '' : 'disabled'}
-                      href={`https://www.imdb.com/title/${externalData.imdb_id}`}
-                    >
+                      href={`https://www.imdb.com/title/${externalData.imdb_id}`}>
                       <ImdbIcon
                         fill={externalData.imdb_id ? '#f5c518' : '#333'}
                         height="24"
@@ -208,7 +213,13 @@ export default function TvDetails() {
         <h2>Current Season</h2>
         <div className="season-overview">
           <div className="season-poster-wrapper">
-            <img src={`https://www.themoviedb.org/t/p/w300${latestSeason.poster_path}`} alt="" />
+            {latestSeason.poster_path ? (
+              <img src={`https://www.themoviedb.org/t/p/w300${latestSeason.poster_path}`} alt="" />
+            ) : (
+              <div style={{ padding: '6px', border: '1px solid rgba(0,0,0,0.2' }}>
+                <PrimaryShortLogo width={128} height={188} />
+              </div>
+            )}
           </div>
           <div className="latest-season-details">
             <h3>{`${latestSeason.name}`}</h3>
