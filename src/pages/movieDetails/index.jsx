@@ -72,21 +72,25 @@ export default function MovieDetail() {
       <section>
         <div>Some feature</div>
       </section>
-      <section className="movie-details">
+      <section className="credit-details">
         <div className="banner-image">
-          <img
-            src={`https://www.themoviedb.org/t/p/original${movieData.backdrop_path}`}
-            alt={movieData.title}
-          />
+          {movieData.backdrop_path && (
+            <img
+              src={`https://www.themoviedb.org/t/p/original${movieData.backdrop_path}`}
+              alt={movieData.title}
+            />
+          )}
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
-            <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieData.poster_path}`}
-              alt={movieData.title}
-            />
+            {movieData.poster_path && (
+              <img
+                src={`https://www.themoviedb.org/t/p/w500${movieData.poster_path}`}
+                alt={movieData.title}
+              />
+            )}
           </div>
-          <div className="movie-detail">
+          <div className="credit-detail">
             <div className="title-gerne">
               <h2>
                 {movieData.title || movieData.name}{' '}
@@ -189,12 +193,14 @@ export default function MovieDetail() {
         <ul className="list-cast">
           {allCast.map((person) => (
             <li key={person.cast_id}>
-              <CastItem
-                gender={person.gender}
-                imgUrl={person.profile_path}
-                name={person.name}
-                character={person.character || person.original_name}
-              />
+              <Link to={`/person/${person.id}`}>
+                <CastItem
+                  gender={person.gender}
+                  imgUrl={person.profile_path}
+                  name={person.name}
+                  character={person.character || person.original_name}
+                />
+              </Link>
             </li>
           ))}
         </ul>

@@ -34,7 +34,7 @@ const Text = ({ percentage, fontSize }) => {
       fontSize={fontSize}
       fontWeight={700}
     >
-      {typeof percentage !== 'number' ? 'NR' : percentage.toFixed(0)}
+      {typeof percentage === 'number' && percentage !== 0 ? percentage.toFixed(0) : 'NR'}
     </text>
   );
 };
