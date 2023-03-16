@@ -83,7 +83,7 @@ export default function TvDetails() {
       <section>
         <div>Some feature</div>
       </section>
-      <section className="movie-details">
+      <section className="credit-details">
         <div className="banner-image">
           {tvShowData.backdrop_path && (
             <img
@@ -101,7 +101,7 @@ export default function TvDetails() {
               />
             )}
           </div>
-          <div className="movie-detail">
+          <div className="credit-detail">
             <div className="title-gerne">
               <h2>
                 {tvShowData.title || tvShowData.name}{' '}
@@ -244,7 +244,7 @@ export default function TvDetails() {
         </div>
       </section>
       <section className="recommend-list">
-        <h3 className="cast-details-title">Recommend Movie</h3>
+        <h3 className="cast-details-title">Recommend TV Shows</h3>
         <ul className="credit-list">
           {creditRecommend.map((credit) => (
             <li key={credit.id}>

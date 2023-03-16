@@ -48,7 +48,9 @@ export default function Persons() {
       <div className="inner-content">
         <section className="search-people-section">
           <div className="image-wrapper">
-            <img src={`https://image.tmdb.org/t/p/original${banner}`} alt="loading ..." />
+            {banner && (
+              <img src={`https://image.tmdb.org/t/p/original${banner}`} alt="loading ..." />
+            )}
           </div>
           <div className="blur-cover">
             <h2>Welcome.</h2>
