@@ -112,7 +112,8 @@ export default function TvDetails() {
                 <span
                   style={{
                     textTransform: 'uppercase'
-                  }}>{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
+                  }}
+                >{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
                 {`Drama, Action & Adventure ⏲ ${tvShowData.runtime}m`}
               </h3>
             </div>
@@ -130,7 +131,8 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.facebook_id ? '' : 'disabled'}
-                      href={`https://www.facebook.com/${externalData.facebook_id}`}>
+                      href={`https://www.facebook.com/${externalData.facebook_id}`}
+                    >
                       <FacebookIcon
                         fill={externalData.facebook_id ? '#2d86ff' : '#333'}
                         height="24"
@@ -141,7 +143,8 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.instagram_id ? '' : 'disabled'}
-                      href={`https://www.instagram.com/${externalData.instagram_id}`}>
+                      href={`https://www.instagram.com/${externalData.instagram_id}`}
+                    >
                       <InstagramIcon
                         fill={externalData.instagram_id ? '#fcaf45' : '#333'}
                         height="24"
@@ -152,7 +155,8 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.twitter_id ? '' : 'disabled'}
-                      href={`https://www.twitter.com/${externalData.twitter_id}`}>
+                      href={`https://www.twitter.com/${externalData.twitter_id}`}
+                    >
                       <TwitterIcon
                         fill={externalData.twitter_id ? '#2d86ff' : '#333'}
                         height="24"
@@ -163,7 +167,8 @@ export default function TvDetails() {
                   <li>
                     <a
                       className={externalData.imdb_id ? '' : 'disabled'}
-                      href={`https://www.imdb.com/title/${externalData.imdb_id}`}>
+                      href={`https://www.imdb.com/title/${externalData.imdb_id}`}
+                    >
                       <ImdbIcon
                         fill={externalData.imdb_id ? '#f5c518' : '#333'}
                         height="24"
