@@ -1,4 +1,5 @@
 import Pie from '../pieChart/PieChart';
+import Image from '../image';
 import './styles.scss';
 
 export default function CreditItem({ title, imgUrl, dayRelease, vote }) {
@@ -6,7 +7,7 @@ export default function CreditItem({ title, imgUrl, dayRelease, vote }) {
     <div className="content-wrapper">
       <section className="image">
         <div className="img-wrapper">
-          <img src={imgUrl} alt={title} />
+          <Image src={imgUrl} alt={title} />
         </div>
       </section>
       <section className="user-rating">

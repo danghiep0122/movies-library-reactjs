@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 import PageList from '../../util/PageList';
 import SearchForm from '../../components/search';
+import Image from '../../components/image';
 
 export default function Persons() {
   const [allPeople, setAllPeople] = useState([]);
@@ -49,7 +50,7 @@ export default function Persons() {
         <section className="search-people-section">
           <div className="image-wrapper">
             {banner && (
-              <img src={`https://image.tmdb.org/t/p/original${banner}`} alt="loading ..." />
+              <Image src={`https://image.tmdb.org/t/p/original${banner}`} alt="loading ..." />
             )}
           </div>
           <div className="blur-cover">
@@ -66,14 +67,7 @@ export default function Persons() {
             <div key={people.id} className="people-item">
               <Link to={`/person/${people.id}`}>
                 <div className="people-img">
-                  <img
-                    src={
-                      people.profile_path
-                        ? `https://image.tmdb.org/t/p/w500/${people.profile_path}`
-                        : 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
-                    }
-                    alt="profile Name"
-                  />
+                  <Image src={people.profile_path} type="people" alt="profile Name" />
                 </div>
                 <div className="people-detail">
                   <h3>{people.name}</h3>

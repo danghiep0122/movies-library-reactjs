@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
+import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
@@ -74,26 +75,16 @@ export default function MovieDetail() {
       </section>
       <section className="credit-details">
         <div className="banner-image">
-          {movieData.backdrop_path && (
-            <img
-              src={`https://www.themoviedb.org/t/p/original${movieData.backdrop_path}`}
-              alt={movieData.title}
-            />
-          )}
+          <Image srcfull={movieData.backdrop_path} alt={movieData.title} />
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
-            {movieData.poster_path && (
-              <img
-                src={`https://www.themoviedb.org/t/p/w500${movieData.poster_path}`}
-                alt={movieData.title}
-              />
-            )}
+            <Image src={movieData.poster_path} alt={movieData.title} />
           </div>
           <div className="credit-detail">
             <div className="title-gerne">
               <h2>
-                {movieData.title || movieData.name}{' '}
+                {movieData.title || movieData.name}
                 {movieData.original_title !== movieData.title && `(${movieData.original_title})`}
               </h2>
               <h3>
