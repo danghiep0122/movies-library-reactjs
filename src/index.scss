@@ -1,3 +1,15 @@
+// Variables
+:root {
+  --primary-color: #1a2238;
+  --background-light-color: #f7f7f7;
+  --text-dark-color: #101820ff;
+  --text-light-color: #fcf6f5ff;
+  --button-color: #5783db;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --light-gray-color: #999;
+}
+
 html,
 body,
 div,
@@ -124,20 +136,19 @@ table {
   border-spacing: 0;
 }
 
+// Customize scroll bar
 ::-webkit-scrollbar-track {
-  border: 2px solid white;
+  // border: 2px solid rgba($color: white, $alpha: 1);
   // border color does not support transparent on scrollbar
-  // border-color: transparent;
-  background-color: #b2bec3;
+  background-color: rgba($color: black, $alpha: 0.1);
 }
 
 ::-webkit-scrollbar {
-  height: 10px;
-  width: 10px;
-  background-color: #dfe6e9;
+  height: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #74b9ff;
+  background-color: var(--primary-color);
   border-radius: 6px;
 }

@@ -53,19 +53,19 @@
   & h2 {
     font-size: 2rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-light-color);
     margin: 0.6rem 0;
   }
 
   & h3 {
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--text-light-color);
   }
 
   & span {
     padding: 0.2rem;
-    color: white;
+    color: var(--text-light-color);
     margin-right: 0.6rem;
   }
 }
@@ -81,7 +81,7 @@
   align-items: center;
   padding-right: 1rem;
   border-right: 1px solid #999;
-  color: white;
+  color: var(--text-light-color);
   font-weight: 800;
   font-size: larger;
 
@@ -104,15 +104,15 @@
   }
 
   & a {
-    background-color: #fffbeb;
+    background-color: var(--text-light-color);
     padding: 1rem;
     display: flex;
-    color: black;
+    color: var(--text-dark-color);
     transition: transform ease 0.4s;
   }
 
   & a.disabled {
-    background-color: #999;
+    background-color: var(--light-gray-color);
     pointer-events: none;
   }
 
@@ -124,17 +124,17 @@
 .quote-line {
   font-style: italic;
   padding-bottom: 1rem;
-  color: white;
+  color: var(--text-light-color);
 }
 
 .overview-section {
   padding-bottom: 0.6rem;
   max-height: 150px;
   overflow-y: scroll;
-  color: white;
+  color: var(--text-light-color);
 
   & h3 {
-    color: white;
+    color: var(--text-light-color);
     font-size: larger;
     padding-bottom: 0.4rem;
   }
@@ -142,7 +142,7 @@
 
 .crew-section {
   padding-top: 1rem;
-  color: white;
+  color: var(--text-light-color);
   & ul {
     display: flex;
   }
@@ -180,6 +180,6 @@
 
   & a {
     text-decoration: none;
-    color: #111;
+    color: var(--text-dark-color);
   }
 }

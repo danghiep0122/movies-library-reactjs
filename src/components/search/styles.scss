@@ -1,112 +1,114 @@
 .search-component {
-    padding-top: 3rem;
-    position: relative;
+  padding-top: 3rem;
+  position: relative;
 }
 
 .seach-form {
-    display: flex;
-    align-items: center;
-    position: relative;
-    
-    & input {
-        font-size: 1rem;
-        flex: 1;
-        border-radius: 2rem;
-        border: none;
-        background-color: aliceblue;
-        padding: .8rem 2rem;
-        outline: none;
-    }
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  & input {
+    font-size: 1rem;
+    flex: 1;
+    border-radius: 2rem;
+    border: none;
+    background-color: var(--text-light-color);
+    padding: 0.8rem 2rem;
+    outline: none;
+  }
 }
 
 .seach-form input:placeholder-shown ~ .right-component .delete-icon {
-    display: none;
+  display: none;
 }
 
 .right-component {
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
 
-    & button {
-        border: none;
-        padding: .8rem 1.8rem;
-        font-size: 1rem;
-        font-weight: 700;
-        border-radius: 2rem;
-        background-image: linear-gradient(90deg, #38E54D, #9CFF2E , #FDFF00);
-        color: #16213E;
-    }
+  & button {
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    background-image: linear-gradient(90deg, #38e54d, #9cff2e, #fdff00);
+    color: var(--text-dark-color);
+  }
 }
 
 .delete-icon {
-    cursor: pointer;
-    padding: 0 1rem ;
-    transition: transform ease .4s;
+  cursor: pointer;
+  padding: 0 1rem;
+  transition: transform ease 0.4s;
 }
 
 .delete-icon:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .disappear {
-    display: none;
+  display: none;
 }
 
 .modal {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(3, 0, 28, .6);
-    position: fixed;
-    top: 0;
-    left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .result-section {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: .6rem 7rem;
-    border-radius: .8rem;
-    overflow: hidden;
-    box-shadow: 0 0 8px 0 #03001C;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0.6rem 7rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 0 8px 0 #03001c;
 }
 
 .result-list a {
-    text-decoration: none;
-    color: #03001C;
+  text-decoration: none;
+  color: var(--text-dark-color);
 }
 
 .result-item {
-    background-color: #FAF8F1;
-    padding: .4rem 1rem;
-    display: flex;
-    align-items: center;
+  background-color: var(--text-light-color);
+  padding: 0.4rem 1rem;
+  display: flex;
+  align-items: center;
 
-    &:hover {
-        background-color: #FAEAB1;
-    }
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+  }
 
-    & h3 {
-        margin-right: .4rem;
-    }
+  & h3 {
+    margin-right: 0.4rem;
+  }
 }
 
 .people-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 1rem;
-    overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  overflow: hidden;
 
-    & img {
-        width: 100%;
-        height: 120%;
-        object-fit: cover;
-    }
+  & img {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+  }
 }
 
 .people-gender {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
