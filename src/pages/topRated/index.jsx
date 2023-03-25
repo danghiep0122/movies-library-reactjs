@@ -39,7 +39,7 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
                 title={item.name || item.title}
                 dayRelease={item.first_air_date || item.release_date}
                 vote={item.vote_average * 10}
-                imgUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                imgUrl={item.poster_path}
               />
             </Link>
           ))}

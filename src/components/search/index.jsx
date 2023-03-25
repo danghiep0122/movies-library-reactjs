@@ -6,6 +6,7 @@ import { DeleteBtn, FemaleIcon, MaleIcon } from '../../assets/img/icon/allIcon';
 import useDebounce from '../../hooks/useDebounce';
 import './styles.scss';
 import { QuestionMarkIcon } from '../../assets/img/icon/allIcon';
+import Image from '../image';
 
 const SearchForm = () => {
   const [allResult, setAllResult] = useState([]);
@@ -65,7 +66,7 @@ const SearchForm = () => {
                 <li className="result-item">
                   <div className="people-avatar">
                     {people.profile_path ? (
-                      <img src={`https://image.tmdb.org/t/p/w500/${people.profile_path}`} alt="" />
+                      <Image src={people.profile_path} alt={people.name} />
                     ) : (
                       <QuestionMarkIcon height="40" width="40" fill="#333" />
                     )}

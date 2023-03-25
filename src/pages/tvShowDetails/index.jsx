@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
+import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
@@ -75,21 +76,11 @@ export default function TvDetails() {
       </section>
       <section className="credit-details">
         <div className="banner-image">
-          {tvShowData.backdrop_path && (
-            <img
-              src={`https://www.themoviedb.org/t/p/original${tvShowData.backdrop_path}`}
-              alt={tvShowData.title}
-            />
-          )}
+          <Image srcfull={tvShowData.backdrop_path} alt={tvShowData.title} />
         </div>
         <div className="detail-wrapper">
           <div className="movie-poster-wrapper">
-            {tvShowData.poster_path && (
-              <img
-                src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tvShowData.poster_path}`}
-                alt={tvShowData.title}
-              />
-            )}
+            <Image src={tvShowData.poster_path} alt={tvShowData.title} />
           </div>
           <div className="credit-detail">
             <div className="title-gerne">

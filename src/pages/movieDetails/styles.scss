@@ -24,7 +24,9 @@
   z-index: -1;
 
   & img {
-    width: 100%;
+    width: auto;
+    object-fit: cover;
+    height: auto;
   }
 }
 

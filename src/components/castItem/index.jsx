@@ -1,4 +1,5 @@
 import { FemaleIcon, MaleIcon } from '../../assets/img/icon/allIcon';
+import Image from '../image';
 import './styles.scss';
 
 export default function CastItem({ name, character, imgUrl, gender }) {
@@ -6,7 +7,7 @@ export default function CastItem({ name, character, imgUrl, gender }) {
     <div className="cast-item">
       <div className="cast-img">
         {imgUrl ? (
-          <img src={`https://image.tmdb.org/t/p/w500${imgUrl}`} alt={name} />
+          <Image src={imgUrl} alt={name} />
         ) : gender === 2 ? (
           <div>
             <MaleIcon height="100" width="100" fill="#2ACAEA" />

@@ -11,6 +11,7 @@ import {
   ImdbIcon,
   UserIcon
 } from '../../assets/img/icon/allIcon';
+import Image from '../../components/image';
 
 export default function Person() {
   const [persondata, setPersonData] = useState({});
@@ -67,9 +68,9 @@ export default function Person() {
           <section className="person-overall">
             <div className="profile-img">
               {persondata.profile_path ? (
-                <img
+                <Image
                   src={`https://image.tmdb.org/t/p/w500/${persondata.profile_path}`}
-                  alt="profile Name"
+                  alt={persondata.name}
                 />
               ) : (
                 <div>{<UserIcon width="250" height="250" />}</div>
@@ -152,13 +153,13 @@ export default function Person() {
               <div className="list-movie-tv-show">
                 <ul>
                   {credits.slice(0, 10).map((item) => (
-                    <li key={item.id}>
+                    <li key={item.credit_id}>
                       <Link to={`/movie/${item.id}`}>
                         <div className="movie-tv-item">
                           <div className="item-img">
-                            <img
+                            <Image
+                              alt={item.title || item.name}
                               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                              alt="Movie Poster"
                             />
                           </div>
                           <h4>{item.title || item.name}</h4>

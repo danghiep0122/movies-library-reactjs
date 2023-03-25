@@ -1,5 +1,6 @@
 import { PrimaryShortLogo } from '../../assets/img/icon/allIcon';
 import ToPercentage from '../../util/ToPercent';
+import Image from '../image';
 import './styles.scss';
 
 export default function CreditRecommend({ name, score, imgUrl, release }) {
@@ -7,7 +8,7 @@ export default function CreditRecommend({ name, score, imgUrl, release }) {
     <div className="credit-recommend-wrapper">
       <div className="credit-img">
         {imgUrl ? (
-          <img src={`https://image.tmdb.org/t/p/w500/${imgUrl}`} alt={name} />
+          <Image src={imgUrl} alt={name} />
         ) : (
           <span>
             <PrimaryShortLogo />
