@@ -10,11 +10,11 @@ export default function CastItem({ name, character, imgUrl, gender }) {
           <Image src={imgUrl} alt={name} />
         ) : gender === 2 ? (
           <div>
-            <MaleIcon height="100" width="100" fill="#2ACAEA" />
+            <MaleIcon height="100" width="100" fill="var(--blue-color)" />
           </div>
         ) : (
           <div>
-            <FemaleIcon height="100" width="100" fill="#FFC0CB" />
+            <FemaleIcon height="100" width="100" fill="var(--pink-color)" />
           </div>
         )}
       </div>

@@ -13,7 +13,7 @@ const Circle = ({ colour, pct, rInput, width }) => {
       r={rInput}
       cx={50}
       cy={50}
-      fill="#160040"
+      fill="var(--primary-color)"
       stroke={strokePct !== circ ? colour : ''} // remove colour as 0% sets full circumference
       strokeWidth={width}
       strokeDasharray={Number(circ) || 0}
@@ -30,7 +30,7 @@ const Text = ({ percentage, fontSize }) => {
       y="50%"
       dominantBaseline="central"
       textAnchor="middle"
-      fill="white"
+      fill="var(--text-light-color)"
       fontSize={fontSize}
       fontWeight={700}
     >
@@ -47,7 +47,13 @@ const Pie = ({ percentage = 0, fontSize = '1.2rem', size = '1rem', width = '6px'
         <Circle
           width={width}
           rInput={size}
-          colour={percentage < 36 ? '#FF1700' : percentage < 76 ? '#FFE400' : '#06FF00'}
+          colour={
+            percentage < 36
+              ? 'var(--red-color)'
+              : percentage < 76
+              ? 'var(--yellow-color)'
+              : 'var(--green-color)'
+          }
           pct={pct}
         />
       </g>
