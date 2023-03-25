@@ -1,5 +1,5 @@
 nav {
-  background-color: #edf5fe;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
 }
@@ -25,8 +25,8 @@ nav {
 }
 
 .type-title {
-  color: rgb(37, 57, 92, 0.8);
-  padding: .6rem 1rem;
+  color: var(--text-light-color);
+  padding: 0.6rem 1rem;
   font-weight: 800;
   font-size: 1.2rem;
   cursor: pointer;
@@ -50,12 +50,12 @@ nav {
   position: absolute;
   left: 0;
   top: 2.8rem;
-  background-color: white;
+  background-color: var(--background-light-color);
   display: none;
   flex-direction: column;
   z-index: 2;
   padding: 0.4rem 0;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
 
   &:hover {
     display: flex;
@@ -66,10 +66,11 @@ nav {
   width: 220px;
   padding: 1rem 2rem;
   font-size: larger;
-  transition: all ease-in .2s;
+  transition: all ease-in 0.1s;
   font-weight: 600;
 
   &:hover {
-    background-color: #999;
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
   }
 }

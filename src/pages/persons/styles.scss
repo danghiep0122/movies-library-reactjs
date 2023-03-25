@@ -1,126 +1,126 @@
 .people-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inner-content {
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 2rem;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
 }
 
 .search-people-section {
-    height: 360px;
-    width: 100%;
-    position: relative
+  height: 360px;
+  width: 100%;
+  position: relative;
 }
-    
+
 .image-wrapper {
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    
-    
-    z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
-    & img {
-        width: 100%;
-    }
+  z-index: -1;
+
+  & img {
+    width: 100%;
+  }
 }
 
-.blur-cover{
-    background-color: rgb(3,37,65, .8);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem;
-    
-    & h2 {
-        font-size: 3rem;
-        color: aliceblue;
-        padding: .6rem 0;
-        font-weight: 800;
-    }
+.blur-cover {
+  background-color: rgb(26, 34, 56, 0.8);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem;
 
-    & h4 {
-        font-size: 2rem;
-        color: aliceblue;
-        font-weight: 500;
-    }
+  & h2 {
+    font-size: 3rem;
+    color: var(--text-light-color);
+    padding: 0.6rem 0;
+    font-weight: 800;
+  }
+
+  & h4 {
+    font-size: 2rem;
+    color: var(--text-light-color);
+    font-weight: 500;
+  }
 }
 
 .page-title {
-    font-size: x-large;
-    padding-top: 2rem;
+  font-size: x-large;
+  padding-top: 2rem;
 }
 
 .all-people {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .people-item {
-    height: 290px;
-    width: 235px;
-    margin: 1.6rem 0;
-    overflow: hidden;
-    box-shadow: 0px 0px 8px 0px rgb(0, 0, 0, .6);
-    border-radius: .4rem;
+  height: 290px;
+  width: 235px;
+  margin: 1.6rem 0;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px 0px rgb(0, 0, 0, 0.6);
+  border-radius: 0.4rem;
 
-    & a {
-        text-decoration: none;
-    }
+  & a {
+    text-decoration: none;
+  }
 }
 
 .people-img {
-    width: 235px;
-    height: 235px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 235px;
+  height: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    & img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .people-detail {
-    padding: .4rem;
-    overflow: hidden;
-    white-space: nowrap; 
-    text-overflow: ellipsis;
-    
-    & h3, p {
-        color: #333;
-        padding-top: .2rem;
-    }
+  padding: 0.4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  & h3,
+  p {
+    color: var(--text-dark-color);
+    padding-top: 0.2rem;
+  }
 }
 
 .navigator-page {
-    display: flex;
-    justify-content: center;
-    padding: 1rem ;
-    
-    & button {
-        transition: all ease-out .2s;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        cursor: pointer;
-        margin: 0 .4rem;
-        background-color: transparent;
-        border: none;
-        font-size: large;
-        color: rgb(0, 0, 0, .8);
-    }
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 
-    & button:hover {
-        background-color: rgb(0, 0, 0, .2);
-    }
+  & button {
+    transition: all ease-out 0.2s;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 0.4rem;
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    color: rgb(0, 0, 0, 0.8);
+  }
+
+  & button:hover {
+    background-color: rgb(0, 0, 0, 0.2);
+  }
 }

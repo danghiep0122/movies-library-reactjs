@@ -8,7 +8,7 @@
 }
 
 .content-wrapper:hover {
-  color: rgb(0, 233, 183);
+  color: var(--primary-color);
 }
 
 .img-wrapper {
@@ -55,8 +55,8 @@
     font-size: x-large;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #fff1dc;
-    background-color: #3a98b9;
+    color: var(--text-light-color);
+    background-color: var(--button-color);
     border: none;
     border-radius: 1rem;
   }

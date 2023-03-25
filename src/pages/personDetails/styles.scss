@@ -43,7 +43,7 @@
   padding: 1rem 0;
   justify-content: flex-start;
   flex-wrap: wrap;
-  transition: transform ease .4s;
+  transition: transform ease 0.4s;
 
   & li {
     height: 100%;
@@ -52,7 +52,7 @@
   }
 
   & a {
-    color: black;
+    color: var(--text-dark-color);
   }
 
   & li:hover {
