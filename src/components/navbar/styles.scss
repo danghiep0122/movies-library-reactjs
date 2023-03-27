@@ -2,6 +2,8 @@ nav {
   background-color: var(--primary-color);
   display: flex;
   justify-content: center;
+  box-shadow: 0 0 6px 0 var(--black-color);
+  height: var(--navbar-height);
 }
 
 .nav-bar-wrapper {
