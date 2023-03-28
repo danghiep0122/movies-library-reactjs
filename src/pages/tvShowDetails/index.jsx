@@ -81,9 +81,6 @@ export default function TvDetails() {
 
   return (
     <main className="body-content">
-      <section>
-        <div>Some feature</div>
-      </section>
       <section className="credit-details">
         <div className="banner-image">
           <Image srcfull={tvShowData.backdrop_path} alt={tvShowData.title} />

@@ -70,9 +70,6 @@ export default function MovieDetail() {
   }, [movieId]);
   return (
     <main className="body-content">
-      <section>
-        <div>Some feature</div>
-      </section>
       <section className="credit-details">
         <div className="banner-image">
           <Image srcfull={movieData.backdrop_path} alt={movieData.title} />

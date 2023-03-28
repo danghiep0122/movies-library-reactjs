@@ -60,9 +60,6 @@ export default function Person() {
 
   return (
     <main className="person-detail-main">
-      <div className="tool">
-        <h4>ID : {personId}</h4>
-      </div>
       {persondata && (
         <div className="body-wrapper">
           <section className="person-overall">
