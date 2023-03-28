@@ -34,8 +34,6 @@ export default function SeasonPage() {
     getSeasonsDetails();
   }, []);
 
-  console.log(allSeasons);
-
   return (
     <main>
       <section className="seasons-overview">
