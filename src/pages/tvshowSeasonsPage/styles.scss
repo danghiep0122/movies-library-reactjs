@@ -1,0 +1,121 @@
+.seasons-overview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.background-image-under {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+        max-width: 3000px;
+        object-fit: cover;
+    }
+}
+
+.image-cover-blur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(
+    to right,
+    rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
+    rgba(31.5, 31.5, 31.5, 0.84) 50%,
+    rgba(31.5, 31.5, 31.5, 0.84) 100%
+  );
+}
+
+.content-seasons {
+    max-width: 1400px;
+    width: 100%;
+    position: absolute;
+    top: 0;     
+}
+
+.seasons-title {
+    width: 100%;
+    height: 500px;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.seasons-image-wrapper {
+    width: 260px;
+    height: 380px;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.seasons-overview-content {
+    flex: 1;
+    margin-left: 2rem;
+    height: 390px;
+    padding: 2rem 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & h1 {
+        font-size: xx-large;
+        margin-bottom: .4rem;
+    }
+
+    & h3 {
+        font-size: large;
+        margin-bottom: .4rem;
+    }
+
+    & p {
+        line-height: 1.2;
+        margin: 2rem 0;
+        max-height: 160px;
+        overflow-y: scroll;
+        font-style: italic;
+    }
+
+    & span {
+        font-size: large;
+    }
+
+    & span:hover {
+        color: Blue;
+        cursor: pointer;
+    }
+}
+
+.season-items-wrapper {
+    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.season-item {
+    width: 100%;
+    max-width: 1400px;
+    border-bottom: 1px solid purple;
+    padding: 2rem ;
+}

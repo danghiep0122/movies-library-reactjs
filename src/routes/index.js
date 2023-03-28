@@ -9,6 +9,7 @@ import TvDetail from '../pages/tvShowDetails';
 import Persons from '../pages/persons';
 import Person from '../pages/personDetails';
 import TopRatedLayOut from '../pages/topRated';
+import SeasonPage from '../pages/tvshowSeasonsPage';
 
 export default function AllRoutes() {
   return (
@@ -30,6 +31,7 @@ export default function AllRoutes() {
 
           {/* change to TVShowDetail */}
           <Route path="/tv/:tvId" element={<TvDetail />} />
+          <Route path="/tv/:tvId/seasons" element={<SeasonPage />} />
           <Route
             path="/tv/topRated"
             element={<TopRatedLayOut pageTitle="Top Rated TV Show" type="tv" />}

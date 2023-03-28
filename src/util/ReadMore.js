@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const ReadMore = ({ children }) => {
+export const ReadMore = ({ children = '' }) => {
   const text = children;
   const [isMore, setIsMore] = useState(true);
   const toggleReadMore = () => {
