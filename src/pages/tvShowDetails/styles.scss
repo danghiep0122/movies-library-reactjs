@@ -46,11 +46,12 @@
 }
 
 .link-to-season-page {
-  font-size: large;
+  font-size: x-large;
   font-weight: 800;
   padding: 1rem;
 
   &:hover {
     transform: translateX(2px);
-  }
+    opacity: .6;
+  } 
 }

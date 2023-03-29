@@ -10,6 +10,7 @@ import Persons from '../pages/persons';
 import Person from '../pages/personDetails';
 import TopRatedLayOut from '../pages/topRated';
 import SeasonPage from '../pages/tvshowSeasonsPage';
+import SeasonDetailPage from '../pages/tvshowSeasonDetailPage';
 
 export default function AllRoutes() {
   return (
@@ -27,11 +28,11 @@ export default function AllRoutes() {
             path="/movie/trending"
             element={<TopTrending pageTitle="Top Rated Movie" type="movie" />}
           />
-          <Route path="/tv" element={<TvDetail />} />
 
           {/* change to TVShowDetail */}
           <Route path="/tv/:tvId" element={<TvDetail />} />
           <Route path="/tv/:tvId/seasons" element={<SeasonPage />} />
+          <Route path="/tv/:tvId/seasons/:season" element={<SeasonDetailPage />} />
           <Route
             path="/tv/topRated"
             element={<TopRatedLayOut pageTitle="Top Rated TV Show" type="tv" />}
