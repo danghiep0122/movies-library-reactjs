@@ -74,6 +74,7 @@ export default function SeasonPage() {
           ({ id, air_date, episode_count, name, poster_path, season_number, overview }) => (
             <div key={id} className="season-item">
               <TvSeasonItem
+                showId={tvId}
                 original_name={seasonsDetails.name}
                 air_date={air_date}
                 episode_count={episode_count}

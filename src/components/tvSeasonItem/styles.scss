@@ -25,6 +25,10 @@
         margin-bottom: .6rem;
     }
 
+    & h1:hover {
+       color: var(--blue-color);
+    }
+
     & h2 {
         font-size: medium;
         margin-bottom: 1rem;
