@@ -38,6 +38,7 @@ export default function TrendingCredits() {
         />
       </div>
       <div className="top-navigator">
+        <h2>Top Treding</h2>
         <div className="navigator-btn-wrapper">
           <button className={times === 'day' && 'active'} onClick={() => setTimes('day')}>
             Daily
