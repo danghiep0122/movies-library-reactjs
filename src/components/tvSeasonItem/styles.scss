@@ -1,40 +1,40 @@
 .seasons-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .poster-wrapper {
-    width: 220px;
-    height: 300px;
-    border-radius: .6rem;
-    box-shadow: 0 0 8px 0 #999;
-    overflow: hidden;
+  width: 220px;
+  height: 300px;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 8px 0 #999;
+  overflow: hidden;
 
-    & img {
-        width: 100%;
-        object-fit: cover;
-    }
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .season-content {
-    flex: 1;
-    padding: 2rem;
+  flex: 1;
+  padding: 2rem;
 
-    & h1 {
-        font-size: x-large;
-        margin-bottom: .6rem;
-    }
+  & h1 {
+    font-size: x-large;
+    margin-bottom: 0.6rem;
+  }
 
-    & h1:hover {
-       color: var(--blue-color);
-    }
+  & h1:hover {
+    color: var(--blue-color);
+  }
 
-    & h2 {
-        font-size: medium;
-        margin-bottom: 1rem;
-    }
+  & h2 {
+    font-size: medium;
+    margin-bottom: 1rem;
+  }
 
-    & p {
-        line-height: 1.2;
-    }
+  & p {
+    line-height: 1.2;
+  }
 }

@@ -1,6 +1,6 @@
 import './styles.scss';
 import SearchForm from '../../components/search';
-import CreditItem from '../../components/creditItem';
+import TrendingCredits from '../../components/topTrending';
 
 export default function HomePage() {
   return (
@@ -18,51 +18,8 @@ export default function HomePage() {
             <SearchForm />
           </div>
         </section>
-        <section className="homepage-trending">
-          <div className="trending-background-image">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/5ec008ad51c4b27b5edfb4d2/1589724439388-N33B26SG5RUQFFUQQL6K/papers.co-vy12-simple-white-pattern-background-40-wallpaper.jpg%22"
-              alt=""
-            />
-          </div>
-          <div className="all-trending-credits">
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-            <div className="trending-item">
-              <CreditItem />
-            </div>
-          </div>
+        <section>
+          <TrendingCredits />
         </section>
       </div>
     </main>

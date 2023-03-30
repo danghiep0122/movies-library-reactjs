@@ -1,43 +1,42 @@
 .episode-wrapper {
-    border-bottom: 1px solid var(--primary-color);
-    margin: 1rem 0;
-    padding: 0.8rem;
-    display: flex;
+  border-bottom: 1px solid var(--primary-color);
+  margin: 1rem 0;
+  padding: 0.8rem;
+  display: flex;
 }
 
 .episode-poster-wrapper {
-    box-shadow: 0 0 8px 0 var(--primary-color);
-    width:200px;
-    height: 140px;
+  box-shadow: 0 0 8px 0 var(--primary-color);
+  width: 200px;
+  height: 140px;
 }
 
 .episode-details {
-    flex: 1;
-    margin-left: 1rem;
-    line-height: 1.2;
-
+  flex: 1;
+  margin-left: 1rem;
+  line-height: 1.2;
 }
 
 .episode-title {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    & h2 {
-        font-size: large;
-        margin-right: 1rem;
-    }
+  & h2 {
+    font-size: large;
+    margin-right: 1rem;
+  }
 
-    & h4 {
-        font-size: small;
-        background-color: var(--primary-color);
-        color: var(--text-light-color);
-        padding: .1rem 1rem;
-        border-radius: 1rem;
-    }
+  & h4 {
+    font-size: small;
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+  }
 }
 
 .episode-detail h3 {
-    font-weight: 400;
-    font-style: italic;
-    margin: .2rem 0;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0.2rem 0;
 }
