@@ -18,6 +18,9 @@ export default function HomePage() {
             <SearchForm />
           </div>
         </section>
+        <section className="homepage-trending-section">
+          <TrendingCredits />
+        </section>
         <section>
           <TrendingCredits />
         </section>
