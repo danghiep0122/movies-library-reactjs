@@ -1,8 +1,12 @@
 import './styles.scss';
 import SearchForm from '../../components/search';
 import TrendingCredits from '../../components/topTrending';
+import TrailerCredits from '../../components/trailerCredits';
+import TrailerModal from '../../components/trailerModal';
+import { useState } from 'react';
 
 export default function HomePage() {
+  const [toggle, setToggle] = useState(false);
   return (
     <main className="homepage-main">
       <div className="homepage-body">
@@ -12,7 +16,7 @@ export default function HomePage() {
           </div>
           <div>
             <div className="homepage-greeting">
-              <h2>Welcome.</h2>
+              <h2 onClick={() => setToggle(true)}>Welcome.</h2>
               <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
             </div>
             <SearchForm />
@@ -21,9 +25,14 @@ export default function HomePage() {
         <section className="homepage-trending-section">
           <TrendingCredits />
         </section>
-        <section>
-          <TrendingCredits />
+        <section className="homepage-trailer-section">
+          <TrailerCredits />
         </section>
+        {toggle && (
+          <section>
+            <TrailerModal setToggle={setToggle} />
+          </section>
+        )}
       </div>
     </main>
   );

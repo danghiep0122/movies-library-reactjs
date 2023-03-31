@@ -239,3 +239,22 @@ export const UserIcon = ({
     />
   </svg>
 );
+
+export const PlayButtonIcon = ({
+  className,
+  height = '3.2rem',
+  width = '3.2rem',
+  fill = 'currentColor'
+}) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    fill={fill}
+    viewBox="0 96 960 960"
+  >
+    <rect width="24" height="24" fill="white" />
+    <path d="M366.478 830.935q-17.391 11.196-34.924 1.12-17.532-10.077-17.532-30.468V344.413q0-20.391 17.532-30.468 17.533-10.076 34.924 1.12l359.261 229.587q16.152 10.196 16.152 28.468 0 18.271-16.152 28.228L366.478 830.935Z" />
+  </svg>
+);

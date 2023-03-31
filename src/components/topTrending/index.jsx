@@ -13,6 +13,7 @@ export default function TrendingCredits() {
 
   const apiKey = process.env.REACT_APP_API_KEY;
   const url = `https://api.themoviedb.org/3/trending/all/${times}?api_key=${apiKey}`;
+  const backgroundUrl = `https://storage.pixteller.com/designs/designs-images/2019-03-27/05/simple-background-backgrounds-passion-simple-1-5c9b95bd34713.png`;
 
   const getTrending = async () => {
     await axios
@@ -28,14 +29,10 @@ export default function TrendingCredits() {
       behavior: 'smooth'
     });
   }, [times]);
-
   return (
     <main className="trending-wrapper">
       <div className="trending-background-image">
-        <img
-          src="https://storage.pixteller.com/designs/designs-images/2019-03-27/05/simple-background-backgrounds-passion-simple-1-5c9b95bd34713.png"
-          alt="background-image"
-        />
+        <img src={backgroundUrl} alt="background-image" />
       </div>
       <div className="top-navigator">
         <h2>Top Treding</h2>
