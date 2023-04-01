@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import TvSeasonItem from '../../components/tvSeasonItem';
+import Image from '../../components/image';
 import './styles.scss';
 
 export default function SeasonPage() {
@@ -16,8 +18,6 @@ export default function SeasonPage() {
   };
 
   const apiKey = process.env.REACT_APP_API_KEY;
-  const urlImgFullsize = process.env.REACT_APP_IMAGE_ORIGINAL_URL;
-  const urlImg = process.env.REACT_APP_IMAGE_URL;
   const url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${apiKey}&language=en-US`;
 
   const getSeasonsDetails = async () => {
@@ -39,14 +39,14 @@ export default function SeasonPage() {
       <section className="seasons-overview">
         <div className="background-image">
           <div className="background-image-under">
-            <img src={urlImgFullsize + seasonsDetails.backdrop_path} alt="" />
+            <Image srcfull={seasonsDetails.backdrop_path} alt={seasonsDetails.name} />
           </div>
           <div className="image-cover-blur" />
         </div>
         <div className="content-seasons">
           <div className="seasons-title">
             <div className="seasons-image-wrapper">
-              <img src={urlImg + seasonsDetails.poster_path} alt={seasonsDetails.name} />
+              <Image src={seasonsDetails.poster_path} alt={seasonsDetails.name} />
             </div>
             <div className="seasons-overview-content">
               <div>
@@ -79,7 +79,7 @@ export default function SeasonPage() {
                 air_date={air_date}
                 episode_count={episode_count}
                 name={name}
-                poster_path={urlImg + poster_path}
+                poster_path={poster_path}
                 season_number={season_number}
                 overview={overview}
               />
