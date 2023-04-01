@@ -1,0 +1,55 @@
+.homepage-main {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-body {
+  max-width: 1400px;
+
+  //delete when done
+  margin-bottom: 10rem;
+}
+
+.search-all-form {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  padding: 4rem;
+  background-color: rgba(26, 34, 56, 80%);
+  margin-bottom: 2rem;
+}
+
+.homepage-greeting {
+  color: var(--text-light-color);
+
+  & h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  & h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.background-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.homepage-trending-section,
+.homepage-trailer-section {
+  margin-bottom: 2rem;
+}
