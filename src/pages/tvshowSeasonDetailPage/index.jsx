@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
+import Image from '../../components/image';
 import EpisodeItem from '../../components/tvEpisodeItem';
 import './styles.scss';
 
@@ -8,8 +10,8 @@ export default function SeasonDetailPage() {
   const [seasonData, setSeasonData] = useState([]);
   const [episodesData, setEpisodesData] = useState([]);
   const { tvId, season } = useParams();
+
   const apiKey = process.env.REACT_APP_API_KEY;
-  const urlImage = process.env.REACT_APP_IMAGE_URL;
   const url = `https://api.themoviedb.org/3/tv/${tvId}/season/${season}?api_key=${apiKey}&language=en-US`;
 
   const getSeasonData = async () => {
@@ -37,7 +39,7 @@ export default function SeasonDetailPage() {
         <div className="background-color">
           <div className="season-item-overview">
             <div className="season-poster-wrapper">
-              <img src={urlImage + seasonData.poster_path} alt="" />
+              <Image src={seasonData.poster_path} alt={seasonData.name} />
             </div>
             <div className="season-overview-content">
               <div>
