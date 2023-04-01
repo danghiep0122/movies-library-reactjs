@@ -207,7 +207,7 @@ export default function TvDetails() {
         <div className="season-overview">
           <div className="season-poster-wrapper">
             {latestSeason.poster_path ? (
-              <img src={`https://www.themoviedb.org/t/p/w300${latestSeason.poster_path}`} alt="" />
+              <Image src={latestSeason.poster_path} alt={latestSeason.name} />
             ) : (
               <div style={{ padding: '6px', border: '1px solid rgba(0,0,0,0.2' }}>
                 <PrimaryShortLogo width={128} height={188} />
