@@ -258,3 +258,39 @@ export const PlayButtonIcon = ({
     <path d="M366.478 830.935q-17.391 11.196-34.924 1.12-17.532-10.077-17.532-30.468V344.413q0-20.391 17.532-30.468 17.533-10.076 34.924 1.12l359.261 229.587q16.152 10.196 16.152 28.468 0 18.271-16.152 28.228L366.478 830.935Z" />
   </svg>
 );
+
+export const SpinnerIcon = ({
+  className,
+  height = '3.2rem',
+  width = '3.2rem',
+  fill = 'currentColor'
+}) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    fill={fill}
+    viewBox="0 0 512 512"
+  >
+    <path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+  </svg>
+);
+
+export const PlayBtnDisabledIcon = ({
+  className,
+  height = '3.2rem',
+  width = '3.2rem',
+  fill = 'currentColor'
+}) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    fill={fill}
+    viewBox="0 96 960 960"
+  >
+    <path d="m635 660-43-43 69-44-329-209v-71l440 280-137 87Zm158 327L532 726 332 853V526L70 263l42-42 724 724-43 42ZM392 591Zm0 153 93-59-93-94v153Zm-60-380Z" />
+  </svg>
+);

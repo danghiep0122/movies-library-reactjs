@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './styles.scss';
+import { DeleteBtn, PlayBtnDisabledIcon } from '../../assets/img/icon/allIcon';
 
 export default function TrailerModal({ setOnModal, creditInfo }) {
   const [trailerUrl, setTrailerUrl] = useState('');
@@ -8,14 +9,15 @@ export default function TrailerModal({ setOnModal, creditInfo }) {
   const url = `https://api.themoviedb.org/3/${creditInfo.type}/${creditInfo.id}/videos?api_key=${apiKey}&language=en-US`;
 
   const getTrailerVideo = async () => {
-    await axios
-      .get(url)
-      .then((res) => setTrailerUrl(res.data.results.find((x) => x.name === 'Official Trailer')));
+    await axios.get(url).then((res) => {
+      setTrailerUrl(res.data.results.find((x) => x.name === 'Official Trailer'));
+    });
   };
 
   useEffect(() => {
     getTrailerVideo();
   }, []);
+
   return (
     <main>
       <div onClick={() => setOnModal(false)} className="modal-outer" />
@@ -26,11 +28,15 @@ export default function TrailerModal({ setOnModal, creditInfo }) {
               setOnModal(false);
             }}
           >
-            X
+            <DeleteBtn height="2rem" width="2rem" fill="var(--white-color)" />
           </button>
-          <div className="video">
-            <h3></h3>
-            {trailerUrl && (
+          <div className="trailer-video">
+            {typeof trailerUrl === 'undefined' ? (
+              <div className="no-trailer-video">
+                <PlayBtnDisabledIcon height="5rem" width="5rem" fill="var(--white-color)" />
+                <h2>Video not found | 404</h2>
+              </div>
+            ) : (
               <iframe
                 width="100%"
                 height="100%"

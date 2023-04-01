@@ -23,19 +23,39 @@
 .trailer-wrapper {
   height: 100%;
   width: 100%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
   & button {
-    width: 10%;
-    height: 4%;
+    width: 6%;
+    height: 6%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 1s ease;
+  }
+
+  & button:hover {
+    transform: scale(1.2);
   }
 }
 
-.video {
+.trailer-video {
   width: 100%;
   flex: 1;
-  background-color: cyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-trailer-video {
+  color: var(--text-light-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h2 {
+    margin: 1rem 0;
+  }
 }

@@ -9,7 +9,7 @@ import './styles.scss';
 export default function TrailerCredits() {
   const [creditType, setCreditType] = useState('movie');
   const [imgUrl, setImgUrl] = useState('');
-  const [listMovies, setListMoives] = useState([]);
+  const [listMovies, setListMovies] = useState([]);
   const [onModal, setOnModal] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState({});
 
@@ -20,7 +20,16 @@ export default function TrailerCredits() {
   const getLatestVideo = async () => {
     await axios
       .get(urlVideo)
-      .then((res) => setListMoives(res.data.results.slice(0, 5)))
+      .then((res) => {
+        setListMovies(
+          res.data.results
+            .sort((a, b) => b.vote_average - a.vote_average)
+            .filter((item) => item.backdrop_path)
+        );
+        setImgUrl(
+          res.data.results.sort((a, b) => b.vote_average - a.vote_average).shift().backdrop_path
+        );
+      })
       .catch((error) => console.error(error));
   };
 

@@ -33,14 +33,15 @@
 }
 
 .all-trailer-list {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: flex-start;
-  overflow: scroll;
+  max-width: 1400px;
+  overflow-x: scroll;
 }
 
 .trailer-item {
-  min-width: 30%;
+  min-width: 380px;
   margin: 0 2rem;
   height: 350px;
   display: flex;
