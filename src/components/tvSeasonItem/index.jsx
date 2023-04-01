@@ -17,7 +17,7 @@ export default function TvSeasonItem({
       <section className="season-item-overview">
         <Link to={`/tv/${showId}/seasons/${season_number}`}>
           <div className="poster-wrapper">
-            <Image src={poster_path} alt={name} />
+            {poster_path !== 'null' && <Image src={poster_path} alt={name} />}
           </div>
         </Link>
         <div className="season-content">
