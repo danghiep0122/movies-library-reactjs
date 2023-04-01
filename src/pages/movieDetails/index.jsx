@@ -75,7 +75,6 @@ export default function MovieDetail() {
       behavior: 'smooth'
     });
   }, [movieId]);
-  console.log(creditRecommend);
   return (
     <main className="body-content">
       <section className="credit-details">
