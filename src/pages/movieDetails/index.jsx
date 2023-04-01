@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
@@ -15,6 +16,8 @@ export default function MovieDetail() {
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
+
+  const recommendList = useRef();
 
   const { movieId } = useParams();
 
@@ -52,7 +55,7 @@ export default function MovieDetail() {
         `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
       )
       .then((res) => {
-        setCreditRecommend(res.data.results);
+        setCreditRecommend(res.data.results.sort((a, b) => b.popularity - a.popularity));
       })
       .catch((error) => console.log(error));
   };
@@ -67,7 +70,12 @@ export default function MovieDetail() {
       left: 0,
       behavior: 'smooth'
     });
+    recommendList.current.scrollTo({
+      left: 0,
+      behavior: 'smooth'
+    });
   }, [movieId]);
+  console.log(creditRecommend);
   return (
     <main className="body-content">
       <section className="credit-details">
@@ -195,7 +203,7 @@ export default function MovieDetail() {
       </section>
       <section className="recommend-list">
         <h3 className="cast-details-title">Recommend Movie</h3>
-        <ul className="credit-list">
+        <ul ref={recommendList} className="credit-list">
           {creditRecommend.map((credit) => (
             <li key={credit.id}>
               <Link to={`/movie/${credit.id}`}>

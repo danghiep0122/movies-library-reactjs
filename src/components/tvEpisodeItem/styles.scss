@@ -7,8 +7,15 @@
 
 .episode-poster-wrapper {
   box-shadow: 0 0 8px 0 var(--primary-color);
-  width: 200px;
-  height: 140px;
+  width: 300px;
+  display: flex;
+  height: 160px;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
 }
 
 .episode-details {
