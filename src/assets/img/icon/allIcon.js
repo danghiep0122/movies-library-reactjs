@@ -294,3 +294,39 @@ export const PlayBtnDisabledIcon = ({
     <path d="m635 660-43-43 69-44-329-209v-71l440 280-137 87Zm158 327L532 726 332 853V526L70 263l42-42 724 724-43 42ZM392 591Zm0 153 93-59-93-94v153Zm-60-380Z" />
   </svg>
 );
+
+export const MovieIcon = ({
+  className,
+  height = '3.2rem',
+  width = '3.2rem',
+  fill = 'currentColor'
+}) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    fill={fill}
+    viewBox="0 96 960 960"
+  >
+    <path d="m140 256 74 152h130l-74-152h89l74 152h130l-74-152h89l74 152h130l-74-152h112q24 0 42 18t18 42v520q0 24-18 42t-42 18H140q-24 0-42-18t-18-42V316q0-24 18-42t42-18Zm0 212v368h680V468H140Zm0 0v368-368Z" />
+  </svg>
+);
+
+export const TVShowIcon = ({
+  className,
+  height = '3.2rem',
+  width = '3.2rem',
+  fill = 'currentColor'
+}) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    fill={fill}
+    viewBox="0 96 960 960"
+  >
+    <path d="M330 936v-80H140q-24 0-42-18t-18-42V276q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H630v80H330ZM140 796h680V276H140v520Zm0 0V276v520Z" />
+  </svg>
+);
