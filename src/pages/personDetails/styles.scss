@@ -171,12 +171,22 @@ div.item-img {
   border-bottom: 1px solid rgb(10, 10, 10, 20%);
   display: flex;
   align-items: center;
+  transition: all ease 0.2s;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+  }
 }
 
 .product-year {
-  flex: 2;
+  flex: 1;
+}
+
+.media-type-icon {
+  flex: 0.5;
 }
 
 .title {
-  flex: 8;
+  flex: 7;
 }
