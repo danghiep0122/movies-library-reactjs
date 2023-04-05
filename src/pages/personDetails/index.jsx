@@ -9,7 +9,9 @@ import {
   TwitterIcon,
   InstagramIcon,
   ImdbIcon,
-  UserIcon
+  UserIcon,
+  MovieIcon,
+  TVShowIcon
 } from '../../assets/img/icon/allIcon';
 import Image from '../../components/image';
 
@@ -149,21 +151,20 @@ export default function Person() {
               <h3>Know For</h3>
               <div className="list-movie-tv-show">
                 <ul>
-                  {credits.slice(0, 10).map((item) => (
-                    <li key={item.credit_id}>
-                      <Link to={`/movie/${item.id}`}>
-                        <div className="movie-tv-item">
-                          <div className="item-img">
-                            <Image
-                              alt={item.title || item.name}
-                              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                            />
+                  {credits
+                    .sort((a, b) => b.popularity - a.popularity)
+                    .map((item) => (
+                      <li key={item.credit_id}>
+                        <Link to={`/${item.media_type}/${item.id}`}>
+                          <div className="movie-tv-item">
+                            <div className="item-img">
+                              <Image alt={item.title || item.name} src={item.poster_path} />
+                            </div>
+                            <h4>{item.title || item.name}</h4>
                           </div>
-                          <h4>{item.title || item.name}</h4>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
@@ -172,14 +173,23 @@ export default function Person() {
               <div className="table-of-acting">
                 {credits.map((product) => {
                   return (
-                    <div key={product.credit_id} className="product-row">
-                      <div className="product-year">
-                        <p>{product.release_date || product.first_air_date || '❔'}</p>
+                    <Link key={product.credit_id} to={`/${product.media_type}/${product.id}`}>
+                      <div className="product-row">
+                        <div className="product-year">
+                          <p>{product.release_date || product.first_air_date || '❔'}</p>
+                        </div>
+                        <div className="media-type-icon">
+                          {product.media_type === 'movie' ? (
+                            <MovieIcon width="2rem" height="2rem" fill="var(--red-color)" />
+                          ) : (
+                            <TVShowIcon width="2rem" height="2rem" fill="var(--blue-color)" />
+                          )}
+                        </div>
+                        <div className="title">
+                          <h4>{product.title || product.name}</h4>
+                        </div>
                       </div>
-                      <div className="title">
-                        <h4>{product.title || product.name}</h4>
-                      </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
