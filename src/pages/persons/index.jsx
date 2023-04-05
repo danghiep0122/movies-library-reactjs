@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import PageList from '../../util/PageList';
-import SearchForm from '../../components/search';
+import { SearchForm } from '../../components/search';
 import Image from '../../components/image';
 
 export default function Persons() {
@@ -48,15 +48,11 @@ export default function Persons() {
     <main className="people-page">
       <div className="inner-content">
         <section className="search-people-section">
-          <div className="image-wrapper">
-            {banner && (
-              <Image src={`https://image.tmdb.org/t/p/original${banner}`} alt="loading ..." />
-            )}
-          </div>
+          <div className="image-wrapper">{banner && <Image src={banner} alt="loading ..." />}</div>
           <div className="blur-cover">
             <h2>Welcome.</h2>
             <h4>Millions of People to discover. Explore now</h4>
-            <SearchForm />
+            <SearchForm type="person" />
           </div>
         </section>
         <section className="page-title">

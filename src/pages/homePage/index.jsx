@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import './styles.scss';
-import SearchForm from '../../components/search';
+import { MultiSearchForm } from '../../components/search';
 import TrendingCredits from '../../components/topTrending';
 import TrailerCredits from '../../components/trailerCredits';
 import Image from '../../components/image';
@@ -34,7 +34,7 @@ export default function HomePage() {
               <h2>Welcome.</h2>
               <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
             </div>
-            <SearchForm />
+            <MultiSearchForm />
           </div>
         </section>
         <section className="homepage-trending-section">
