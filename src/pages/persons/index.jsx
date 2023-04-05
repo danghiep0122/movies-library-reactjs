@@ -48,7 +48,9 @@ export default function Persons() {
     <main className="people-page">
       <div className="inner-content">
         <section className="search-people-section">
-          <div className="image-wrapper">{banner && <Image src={banner} alt="loading ..." />}</div>
+          <div className="image-wrapper">
+            {banner && <Image srcfull={banner} alt="loading ..." />}
+          </div>
           <div className="blur-cover">
             <h2>Welcome.</h2>
             <h4>Millions of People to discover. Explore now</h4>
