@@ -254,7 +254,7 @@ export function SearchForm({ type }) {
               </div>
             ) : (
               allResults.map(({ id, title, release_date, original_language }) => (
-                <Link to={`./movie/${id}`} key={id}>
+                <Link to={`/${type}/${id}`} key={id}>
                   <div className="result-item">
                     <h3>{title}</h3>
                     <h3 style={{ textTransform: 'uppercase' }}>{`(${original_language})`}</h3>
@@ -279,7 +279,7 @@ export function SearchForm({ type }) {
               </div>
             ) : (
               allResults.map(({ id, name, first_air_date, original_language }) => (
-                <Link to={`./tv/${id}`} key={id}>
+                <Link to={`/${type}/${id}`} key={id}>
                   <div className="result-item">
                     <h3>{name}</h3>
                     <h3 style={{ textTransform: 'uppercase' }}>{`(${original_language})`}</h3>
@@ -300,7 +300,7 @@ export function SearchForm({ type }) {
               </div>
             ) : (
               allResults.map(({ id, name, profile_path, gender, known_for_department }) => (
-                <Link to={`./person/${id}`} key={id}>
+                <Link to={`/${type}/${id}`} key={id}>
                   <div className="result-item">
                     <div className="people-avatar">
                       {profile_path ? (
