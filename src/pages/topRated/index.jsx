@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import CreditItem from '../../components/creditItem';
+import SearchSection from '../../components/searchSection';
 
 import './styles.scss';
 
@@ -29,6 +30,9 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
   return (
     <main className="top-trending-page">
       <div className="content-container">
+        <section className="search-with-background-section">
+          <SearchSection type={type} />
+        </section>
         <section className="page-title">
           <h2>{pageTitle}</h2>
         </section>
