@@ -35,22 +35,24 @@
 
 .navigator-btn-wrapper {
   border: 1px solid var(--primary-color);
+  border-color: var(--primary-color);
   border-radius: 2rem;
   overflow: hidden;
+  background-color: var(--white-color);
 
   & button {
-    border: none;
+    border: 1px solid transparent;
     padding: 0.6rem 3rem;
     cursor: pointer;
     color: var(--text-dark-color);
     font-weight: 800;
     font-size: large;
-    transition: all ease 0.2s;
-    background-color: var(--white-color);
+    transition: all linear 0.2s;
+    background-color: transparent;
   }
 
   & .active {
-    border: 1px solid var(--primary-color);
+    border-color: 1px solid var(--primary-color);
     border-radius: 2rem;
     background-color: var(--primary-color);
     color: var(--text-light-color);

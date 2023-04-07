@@ -23,8 +23,6 @@ export default function TrailerModal({ setOnModal, creditInfo }) {
     getTrailerVideo();
   }, []);
 
-  console.log(tvTrailerUrl);
-
   return (
     <main>
       <div onClick={() => setOnModal(false)} className="modal-outer" />
