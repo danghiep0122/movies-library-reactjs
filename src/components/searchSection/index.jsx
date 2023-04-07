@@ -6,7 +6,7 @@ import axios from 'axios';
 import '../search/styles.scss';
 
 export default function SearchSection({ type }) {
-  const [banner, setBanner] = useState([]);
+  const [banner, setBanner] = useState('');
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const getAllBanner = async () => {
