@@ -5,6 +5,7 @@ import { PlayButtonIcon } from '../../assets/img/icon/allIcon';
 import Image from '../image';
 import TrailerModal from '../trailerModal';
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
 export default function TrailerCredits() {
   const [creditType, setCreditType] = useState('movie');
@@ -93,10 +94,12 @@ export default function TrailerCredits() {
                   </div>
                   <Image src={item.backdrop_path} alt="hinh nen" />
                 </div>
-                <div className="trailer-title">
-                  <h2>{item.title || item.name}</h2>
-                  <h3>{item.release_date || item.first_air_date}</h3>
-                </div>
+                <Link to={`/${creditType}/${item.id}`}>
+                  <div className="trailer-title">
+                    <h2>{item.title || item.name}</h2>
+                    <h3>{item.release_date || item.first_air_date}</h3>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
