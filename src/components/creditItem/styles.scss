@@ -61,3 +61,17 @@
     border-radius: 1rem;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .img-wrapper {
+    height: 360px;
+  }
+
+  .user-rating {
+    top: calc(360px - 50px);
+  }
+}

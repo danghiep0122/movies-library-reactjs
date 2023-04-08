@@ -86,7 +86,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  margin: 0.6rem 7rem;
+  margin: 0.6rem 8rem;
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 0 8px 0 var(--primary-color);
@@ -162,4 +162,19 @@
 
 .people-gender {
   margin-right: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .search-component {
+    width: 100%;
+    padding: 3rem 0.6px 0;
+  }
+
+  .result-section {
+    margin: 0.8rem 1rem;
+  }
+
+  .result-list {
+    padding: 1rem;
+  }
 }
