@@ -1,5 +1,4 @@
 .trending-wrapper {
-  width: 100%;
   max-width: 1400px;
   position: relative;
   display: flex;
@@ -16,12 +15,12 @@
   z-index: -1;
 
   & img {
-    width: 100%;
+    object-fit: cover;
   }
 }
 
 .top-navigator {
-  padding: 1rem;
+  margin: 1rem;
   display: flex;
   align-items: center;
 
@@ -74,5 +73,19 @@
   & .content-wrapper {
     background-color: var(--white-color);
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top-navigator {
+    flex-direction: column;
+
+    & h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .all-trending-credits {
+    max-width: 100vw;
   }
 }

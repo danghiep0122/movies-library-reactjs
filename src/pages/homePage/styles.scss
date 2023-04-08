@@ -45,11 +45,23 @@
   align-items: center;
 
   & img {
-    width: 100%;
+    object-fit: cover;
   }
 }
 
 .homepage-trending-section,
 .homepage-trailer-section {
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .search-all-form {
+    padding: 2rem;
+  }
+
+  .background-image-wrapper {
+    & img {
+      height: 100%;
+    }
+  }
 }
