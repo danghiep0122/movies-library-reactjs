@@ -27,7 +27,6 @@
   align-items: flex-end;
 
   & button {
-    height: 6%;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -35,7 +34,7 @@
     display: flex;
     align-items: center;
     color: var(--text-light-color);
-    padding: 0 1rem;
+    padding: 1rem;
 
     & h4 {
       font-size: medium;
@@ -56,15 +55,9 @@
   }
 }
 
-.test {
-  height: 300px;
-  width: 300px;
-  border: 1px solid red;
-  color: aliceblue;
-}
-
 .trailer-video {
   width: 100%;
+  padding: 0.1rem;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -79,5 +72,11 @@
 
   & h2 {
     margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal-inner {
+    height: 60%;
   }
 }
