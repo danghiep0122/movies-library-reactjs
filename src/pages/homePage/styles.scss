@@ -51,12 +51,14 @@
 
 .homepage-trending-section,
 .homepage-trailer-section {
+  width: 100vw;
+  max-width: 1400px;
   margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 767px) {
   .search-all-form {
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
 
   .background-image-wrapper {
