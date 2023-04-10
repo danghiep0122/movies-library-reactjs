@@ -190,3 +190,63 @@ div.item-img {
 .title {
   flex: 7;
 }
+
+@media screen and (max-width: 575px) {
+  .body-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0.4rem;
+  }
+
+  .person-overall {
+    width: 92%;
+  }
+
+  .persion-details {
+    padding: 0;
+  }
+
+  .social-logo {
+    justify-content: center;
+    flex-wrap: nowrap;
+    & li {
+      border: 1px solid var(--primary-color);
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+    }
+
+    & .disabled {
+      border: none;
+    }
+  }
+
+  .personal-info,
+  .overall-title {
+    display: none;
+  }
+
+  .profile-img {
+    height: 44vh;
+    & img {
+      width: 100%;
+    }
+  }
+
+  .know-for-section {
+    & ul {
+      width: 96vw;
+    }
+  }
+
+  .product-year {
+    flex: 3;
+  }
+
+  .media-type-icon {
+    flex: 1.4;
+  }
+
+  .title {
+    flex: 5.6;
+  }
+}

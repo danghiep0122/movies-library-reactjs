@@ -40,6 +40,7 @@
   }
 
   & p {
+    margin-top: 1rem;
     line-height: 1.1;
   }
 }
@@ -62,5 +63,15 @@
 
   & h6:hover {
     color: var(--blue-color);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .season-item-overview {
+    flex-direction: column;
+  }
+
+  .season-overview-content {
+    margin: 0;
   }
 }

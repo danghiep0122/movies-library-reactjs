@@ -185,3 +185,67 @@
     color: var(--text-dark-color);
   }
 }
+
+@media screen and (max-width: 575px) {
+  .credit-details {
+    display: block;
+    height: auto;
+  }
+
+  .banner-image {
+    height: auto;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  .title-gerne h3 {
+    display: none;
+  }
+
+  .score-area {
+    border: none;
+  }
+
+  .score-point {
+    transform: scale(0.8);
+  }
+
+  .detail-wrapper {
+    height: auto;
+    position: inherit;
+    padding: 0;
+  }
+
+  .list-toolkits {
+    flex-direction: column;
+  }
+
+  .toolkit {
+    margin-left: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    & li {
+      margin: 0 1rem;
+    }
+  }
+  .credit-detail {
+    padding: 0.4rem;
+    margin: 0;
+  }
+
+  .movie-poster-wrapper {
+    display: none;
+  }
+
+  .crew-section {
+    display: none;
+  }
+
+  .list-cast,
+  .credit-list {
+    width: 100vw;
+  }
+}
