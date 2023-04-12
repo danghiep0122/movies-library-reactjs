@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom';
 import { DeleteBtn, HamburgerMenuIcon, PrimaryShortLogo } from '../../assets/img/icon/allIcon';
 
 import './styles.scss';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 export default function NavBar() {
-  const navbarModal = useRef();
+  const [width, setWidth] = useState(0);
+
   const openNav = () => {
-    navbarModal.current.style.width = '100%';
+    setWidth('100%');
   };
   const closeNav = () => {
-    navbarModal.current.style.width = '0';
+    setWidth('0');
   };
   return (
     <nav>
@@ -48,7 +49,7 @@ export default function NavBar() {
           <div onClick={openNav} className="hamburger-menu-wrapper">
             <HamburgerMenuIcon width="2rem" height="2rem" fill="var(--text-light-color)" />
           </div>
-          <div onClick={closeNav} ref={navbarModal} className="navbar-modal">
+          <div onClick={closeNav} style={{ width: width }} className="navbar-modal">
             <div className="inner-navbar-content">
               <div className="close-btn">
                 <DeleteBtn fill="var(--text-light-color)" />

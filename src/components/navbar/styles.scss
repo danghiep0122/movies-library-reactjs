@@ -124,10 +124,12 @@ nav {
     }
 
     & a {
-      margin: 1rem 1rem;
-      font-size: large;
+      margin: 0.6rem 0;
+      padding: 1rem 2rem;
+      font-size: x-large;
       font-weight: 800;
       color: var(--text-light-color);
+      border-radius: 3rem;
     }
 
     & h5 {
