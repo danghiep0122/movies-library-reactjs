@@ -9,9 +9,9 @@ export default function VideoItem({ videoUrl, name }) {
   return (
     <main>
       <div className="video-item-wrapper">
-        <div className="video-img-wrapper">
-          <img src={`https://i.ytimg.com/vi/${videoUrl}/maxresdefault.jpg`} />
-          <div onClick={() => setOnModal(true)} className="play-btn-icon">
+        <div onClick={() => setOnModal(true)} className="video-img-wrapper">
+          <img src={`https://img.youtube.com/vi/${videoUrl}/hqdefault.jpg`} />
+          <div className="play-btn-icon">
             <PlayButtonIcon fill="var(--red-color)" />
           </div>
         </div>

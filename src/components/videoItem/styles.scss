@@ -6,10 +6,16 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   & img {
     width: 100%;
     object-fit: cover;
+    transition: all ease 0.4s;
+  }
+
+  & img:hover {
+    transform: scale(1.2);
   }
 }
 
@@ -21,7 +27,6 @@
   background-color: rgba($color: black, $alpha: 0.6);
   padding: 0.4rem;
   border-radius: 50%;
-  cursor: pointer;
   transition: all ease 0.2s;
 
   & svg {
