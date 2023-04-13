@@ -1,0 +1,14 @@
+.video-item-outer {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.credit-item-detail {
+  padding: 2rem;
+
+  & h3 {
+    font-size: x-large;
+    margin-bottom: 1rem;
+  }
+}

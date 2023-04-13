@@ -186,6 +186,16 @@
   }
 }
 
+.videos-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h2 {
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .credit-details {
     display: block;
