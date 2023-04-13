@@ -2,13 +2,14 @@ import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import './styles.scss';
 import { FacebookIcon, InstagramIcon, TwitterIcon, ImdbIcon } from '../../assets/img/icon/allIcon';
 import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
 import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
-import './styles.scss';
+import VideoItem from '../../components/videoItem';
 
 export default function MovieDetail() {
   const [movieData, setMovieData] = useState([]);
@@ -16,6 +17,7 @@ export default function MovieDetail() {
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
+  const [allVideos, setAllVideos] = useState([]);
 
   const recommendList = useRef();
 
@@ -60,21 +62,35 @@ export default function MovieDetail() {
       .catch((error) => console.log(error));
   };
 
+  const getMovieVideos = async () => {
+    await axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`)
+      .then((res) => {
+        setAllVideos(res.data.results);
+      })
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getMovieData();
     getExternalData();
     getMovieCast();
     getMovieRecommend();
+    getMovieVideos();
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
-    recommendList.current.scrollTo({
-      left: 0,
-      behavior: 'smooth'
-    });
+    creditRecommend.length !== 0 &&
+      recommendList.current.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
   }, [movieId]);
+
+  console.log(allVideos);
+
   return (
     <main className="body-content">
       <section className="credit-details">
@@ -200,23 +216,37 @@ export default function MovieDetail() {
           ))}
         </ul>
       </section>
-      <section className="recommend-list">
-        <h3 className="cast-details-title">Recommend Movie</h3>
-        <ul ref={recommendList} className="credit-list">
-          {creditRecommend.map((credit) => (
-            <li key={credit.id}>
-              <Link to={`/movie/${credit.id}`}>
-                <CreditRecommend
-                  name={credit.title}
-                  score={credit.vote_average}
-                  release={credit.release_date}
-                  imgUrl={credit.backdrop_path}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {creditRecommend.length !== 0 && (
+        <section className="recommend-list">
+          <h3 className="cast-details-title">Recommend Movie</h3>
+          <ul ref={recommendList} className="credit-list">
+            {creditRecommend.map((credit) => (
+              <li key={credit.id}>
+                <Link to={`/movie/${credit.id}`}>
+                  <CreditRecommend
+                    name={credit.title}
+                    score={credit.vote_average}
+                    release={credit.release_date}
+                    imgUrl={credit.backdrop_path}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {allVideos.length !== 0 && (
+        <section className="recommend-list">
+          <h3 className="cast-details-title">Recommend Movie</h3>
+          <ul className="credit-list">
+            {allVideos.slice(0, 6).map(({ id, key, name }) => (
+              <li key={id}>
+                <VideoItem name={name} videoUrl={key} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }

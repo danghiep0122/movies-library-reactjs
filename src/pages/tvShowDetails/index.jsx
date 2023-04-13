@@ -12,6 +12,7 @@ import CastItem from '../../components/castItem';
 import CreditRecommend from '../../components/creditRecommend';
 import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
+import VideoItem from '../../components/videoItem';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
 
@@ -21,6 +22,7 @@ export default function TvDetails() {
   const [creditRecommend, setCreditRecommend] = useState([]);
   const [allCast, setAllCast] = useState([]);
   const [allCrew, setAllCrew] = useState([]);
+  const [allVideos, setAllVideos] = useState([]);
   const [latestSeason, setLatestSeason] = useState({});
 
   const { tvId } = useParams();
@@ -67,11 +69,21 @@ export default function TvDetails() {
       .catch((error) => console.log(error));
   };
 
+  const getTvShowVideos = async () => {
+    await axios
+      .get(`https://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${apiKey}&language=en-US`)
+      .then((res) => {
+        setAllVideos(res.data.results);
+      })
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getTvShowData();
     getExternalData();
     getTvShowCast();
     getTvShowRecommend();
+    getTvShowVideos();
     window.scrollTo({
       top: 0,
       left: 0,
@@ -248,6 +260,18 @@ export default function TvDetails() {
           ))}
         </ul>
       </section>
+      {allVideos.length !== 0 && (
+        <section className="recommend-list">
+          <h3 className="cast-details-title">Recommend Movie</h3>
+          <ul className="credit-list">
+            {allVideos.slice(0, 6).map(({ id, key, name }) => (
+              <li key={id}>
+                <VideoItem name={name} videoUrl={key} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }
