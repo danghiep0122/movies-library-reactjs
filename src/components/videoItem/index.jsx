@@ -4,7 +4,7 @@ import { PlayButtonIcon } from '../../assets/img/icon/allIcon';
 import './styles.scss';
 import TrailerYoutube from '../../components/trailerModal/trailerYoutube';
 
-export default function VideoItem({ videoUrl, name }) {
+export default function VideoItem({ videoUrl }) {
   const [onModal, setOnModal] = useState(false);
   return (
     <main>
@@ -14,9 +14,6 @@ export default function VideoItem({ videoUrl, name }) {
           <div className="play-btn-icon">
             <PlayButtonIcon fill="var(--red-color)" />
           </div>
-        </div>
-        <div className="video-details">
-          <h3>{name}</h3>
         </div>
       </div>
       {onModal && <TrailerYoutube setOnModal={setOnModal} videoUrl={videoUrl} />}

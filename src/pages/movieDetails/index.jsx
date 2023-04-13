@@ -89,8 +89,6 @@ export default function MovieDetail() {
       });
   }, [movieId]);
 
-  console.log(allVideos);
-
   return (
     <main className="body-content">
       <section className="credit-details">
@@ -237,7 +235,12 @@ export default function MovieDetail() {
       )}
       {allVideos.length !== 0 && (
         <section className="recommend-list">
-          <h3 className="cast-details-title">Recommend Movie</h3>
+          <div className="videos-nav-wrapper">
+            <h3 className="cast-details-title">Videos ({allVideos.length})</h3>
+            <Link to={`/movie/${movieId}/videos`}>
+              <h2>See all</h2>
+            </Link>
+          </div>
           <ul className="credit-list">
             {allVideos.slice(0, 6).map(({ id, key, name }) => (
               <li key={id}>

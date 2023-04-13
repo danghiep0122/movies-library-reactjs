@@ -262,11 +262,19 @@ export default function TvDetails() {
       </section>
       {allVideos.length !== 0 && (
         <section className="recommend-list">
-          <h3 className="cast-details-title">Recommend Movie</h3>
+          <div className="videos-nav-wrapper">
+            <h3 className="cast-details-title">Videos ({allVideos.length})</h3>
+            <Link to={`/tv/${tvId}/videos`}>
+              <h2>See all</h2>
+            </Link>
+          </div>
           <ul className="credit-list">
             {allVideos.slice(0, 6).map(({ id, key, name }) => (
               <li key={id}>
                 <VideoItem name={name} videoUrl={key} />
+                <div className="video-details">
+                  <h3>{name}</h3>
+                </div>
               </li>
             ))}
           </ul>
