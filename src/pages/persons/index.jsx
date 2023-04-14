@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
-import PageList from '../../util/PageList';
 import Image from '../../components/image';
 import SearchSection from '../../components/searchSection';
+import Pagination from '../../components/pagination';
 
 export default function Persons() {
   const [allPeople, setAllPeople] = useState([]);
   const [pageNo, setPageNo] = useState(1);
-  const list = PageList(15);
+  const [allPages, setAllPages] = useState(0);
 
   const personUrl = process.env.REACT_APP_PERSON_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -18,17 +18,22 @@ export default function Persons() {
   const getAllPopularPeople = async () => {
     await axios
       .get(`${personUrl}/popular?api_key=${apiKey}&language=en-US&page=${pageNo}`)
-      .then((res) => setAllPeople(res.data.results))
+      .then((res) => {
+        setAllPeople(res.data.results);
+        setAllPages(res.data.total_pages);
+      })
       .catch((error) => console.log(error));
-  };
-
-  const handleClick = (page) => {
-    setPageNo(page);
   };
 
   useEffect(() => {
     getAllPopularPeople();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [pageNo]);
+
+  console.log(allPages);
 
   return (
     <main className="people-page">
@@ -55,13 +60,7 @@ export default function Persons() {
           ))}
         </section>
         <section className="navigator-page">
-          <div>
-            {list.map((page) => (
-              <button onClick={() => handleClick(page)} key={page}>
-                {page}
-              </button>
-            ))}
-          </div>
+          <Pagination totalPages={allPages} setPageNo={setPageNo} />
         </section>
       </div>
     </main>

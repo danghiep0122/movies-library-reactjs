@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import './styles.scss';
 
-export default function Pagination({ totalPages = 1 }) {
+export default function Pagination({ totalPages, setPageNo }) {
   const [pageActive, setPageActive] = useState(1);
   const DOTSL = ' ...';
   const DOTSR = '... ';
 
   const [pages, setPages] = useState([]);
+
+  const handleClick = (page) => {
+    setPageNo(page);
+    setPageActive(page);
+  };
 
   useEffect(() => {
     if (pageActive >= 5 && pageActive < totalPages - 3) {
@@ -26,8 +31,6 @@ export default function Pagination({ totalPages = 1 }) {
     }
   }, [pageActive]);
 
-  console.log(pages);
-
   return (
     <main>
       <div className="page-body-wrapper">
@@ -38,6 +41,7 @@ export default function Pagination({ totalPages = 1 }) {
               onClick={() => {
                 if (pageActive > 1) {
                   setPageActive(pageActive - 1);
+                  setPageNo(pageActive - 1);
                 }
               }}
             >
@@ -47,8 +51,10 @@ export default function Pagination({ totalPages = 1 }) {
               <div className="number-item" key={page}>
                 <button
                   className={pageActive === page ? 'active' : ''}
-                  style={page === DOTSL || page === DOTSR ? { pointerEvents: 'none' } : {}}
-                  onClick={() => setPageActive(page)}
+                  style={
+                    page === DOTSL || page === DOTSR || page === 0 ? { pointerEvents: 'none' } : {}
+                  }
+                  onClick={() => handleClick(page)}
                 >
                   {page}
                 </button>
@@ -59,6 +65,7 @@ export default function Pagination({ totalPages = 1 }) {
               onClick={() => {
                 if (pageActive < totalPages) {
                   setPageActive(pageActive + 1);
+                  setPageNo(pageActive + 1);
                 }
               }}
             >
