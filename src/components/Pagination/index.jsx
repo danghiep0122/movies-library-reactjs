@@ -45,7 +45,7 @@ export default function Pagination({ totalPages, setPageNo }) {
                 }
               }}
             >
-              ◀
+              ⇐
             </button>
             {pages.map((page) => (
               <div className="number-item" key={page}>
@@ -69,7 +69,7 @@ export default function Pagination({ totalPages, setPageNo }) {
                 }
               }}
             >
-              ▶
+              ⇒
             </button>
           </div>
         </div>
