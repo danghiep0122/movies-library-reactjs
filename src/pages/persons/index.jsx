@@ -33,8 +33,6 @@ export default function Persons() {
     });
   }, [pageNo]);
 
-  console.log(allPages);
-
   return (
     <main className="people-page">
       <div className="inner-content">

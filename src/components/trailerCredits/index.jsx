@@ -42,7 +42,7 @@ export default function TrailerCredits() {
     <main className="all-trailers">
       <section>
         <div className="trailer-background-image">
-          <Image src={imgUrl} alt="background-image" />
+          <Image srcfull={imgUrl} alt="background-image" />
         </div>
         <div className="trailer-inner">
           <div className="top-navigator">
