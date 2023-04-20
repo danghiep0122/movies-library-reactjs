@@ -28,3 +28,44 @@ a {
   color: var(--text-dark-color);
   text-decoration: none;
 }
+
+.fetching-item-notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.spinning-loading-icon {
+  display: flex;
+  padding: 1rem;
+  animation: fullCircleSpinning 0.6s linear infinite;
+}
+
+.loadmore-section {
+  width: 100%;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+
+  & button {
+    width: 100%;
+    padding: 1.6rem;
+    font-size: x-large;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-light-color);
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 1rem;
+  }
+}
+
+@keyframes fullCircleSpinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

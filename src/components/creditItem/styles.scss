@@ -44,24 +44,6 @@
   left: -15px;
 }
 
-.loadmore {
-  border: 1px solid greenyellow;
-  width: 100%;
-  padding: 1rem 0;
-
-  & button {
-    width: 100%;
-    padding: 1.6rem;
-    font-size: x-large;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-light-color);
-    background-color: var(--button-color);
-    border: none;
-    border-radius: 1rem;
-  }
-}
-
 @media screen and (max-width: 767px) {
   .content-wrapper {
     width: 100%;
