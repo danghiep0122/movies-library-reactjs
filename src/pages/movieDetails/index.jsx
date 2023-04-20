@@ -36,7 +36,7 @@ export default function MovieDetail() {
     await axios
       .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`)
       .then((res) => {
-        setAllCrew(res.data.crew.slice(0, 6));
+        setAllCrew(res.data.crew.slice(0, 4));
         setAllCast(res.data.cast.sort((a, b) => b.popularity - a.popularity));
       })
       .catch((error) => console.log(error));

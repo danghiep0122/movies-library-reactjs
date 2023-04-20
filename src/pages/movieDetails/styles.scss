@@ -172,11 +172,15 @@
   padding: 1rem;
 }
 
+.recommend-list {
+  width: 98vw;
+  max-width: 1400px;
+}
+
 .list-cast,
 .credit-list {
-  max-width: 1400px;
   display: flex;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0;
   gap: 2rem;
   overflow-x: scroll;
 
@@ -196,7 +200,7 @@
   }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   .credit-details {
     display: block;
     height: auto;
@@ -255,6 +259,24 @@
   }
 
   .list-cast,
+  .credit-list {
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .detail-wrapper {
+    max-width: 100vw;
+  }
+
+  .list-toolkits {
+    flex-direction: column;
+  }
+
+  .crew-section {
+    display: none;
+  }
+
   .credit-list {
     width: 100vw;
   }
