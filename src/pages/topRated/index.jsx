@@ -1,19 +1,23 @@
 import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import CreditItem from '../../components/creditItem';
 import SearchSection from '../../components/searchSection';
+import CreditItem from '../../components/creditItem';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll';
+import { SpinnerIcon } from '../../assets/img/icon/allIcon';
 
 import './styles.scss';
 
 export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie' }) {
   const [creditList, setCreditList] = useState([]);
+  const [newCredits, setNewCredits] = useState([]);
+  const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
+  const [page, setPage] = useState([2]);
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
-  const getCreditList = async () => {
+  const getFirstPageCredits = async () => {
     await axios
       .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => {
@@ -23,9 +27,39 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
       .catch((error) => console.log(error));
   };
 
+  const getMoreCredits = async () => {
+    await axios
+      .get(
+        `https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=en-US&page=${
+          page.length + 1
+        }`
+      )
+      .then((response) => {
+        const result = response.data.results;
+        setNewCredits(result.sort((a, b) => b.vote_average - a.vote_average));
+      })
+      .catch((error) => console.error(error));
+  };
+
   useEffect(() => {
-    getCreditList();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setPage([1, 2]);
+    getFirstPageCredits();
+    getMoreCredits();
   }, [type]);
+
+  function fetchMoreListItems() {
+    handleClick();
+  }
+
+  const handleClick = () => {
+    setPage((page) => [...page, page.at(-1) + 1]);
+    setTimeout(() => {
+      getMoreCredits();
+      setCreditList((allCredits) => [...allCredits, ...newCredits]);
+      setIsFetching(false);
+    }, 1000);
+  };
 
   return (
     <main className="top-trending-page">
@@ -48,8 +82,17 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
             </Link>
           ))}
         </section>
-        <section className="loadmore">
-          <button>Load More</button>
+        <section className="loadmore-section">
+          {isFetching ? (
+            <div className="fetching-item-notice">
+              <div className="spinning-loading-icon">
+                <SpinnerIcon height="2rem" width="2rem" />
+              </div>
+              <span>{'Getting more items...'}</span>
+            </div>
+          ) : (
+            <button onClick={() => handleClick()}>Load more items</button>
+          )}
         </section>
       </div>
     </main>

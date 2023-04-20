@@ -29,7 +29,7 @@ export default function Pagination({ totalPages, setPageNo }) {
         totalPages
       ]);
     }
-  }, [pageActive]);
+  }, [pageActive, totalPages]);
 
   return (
     <main>
