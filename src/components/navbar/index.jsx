@@ -24,14 +24,18 @@ export default function NavBar() {
 
         <section className="dropdown-selection">
           <div className="type-section">
-            <div className="type-title">Movies</div>
+            <div className="type-title">
+              <Link to={'/movie'}>Movies</Link>
+            </div>
             <div className="type-selection">
               <Link to={'/movie/trending'}>Treding</Link>
               <Link to={'/movie/topRated'}>Top Rated</Link>
             </div>
           </div>
           <div className="type-section">
-            <div className="type-title">TV Show</div>
+            <div className="type-title">
+              <Link to={'/tv'}>TV Show</Link>
+            </div>
             <div className="type-selection">
               <Link to={'/tv/popular'}>Popular</Link>
               <Link to={'/tv/topRated'}>Top Rated</Link>
