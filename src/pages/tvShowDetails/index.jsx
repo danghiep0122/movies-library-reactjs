@@ -240,7 +240,7 @@ export default function TvDetails() {
           </div>
         </div>
         <div className="link-to-season-page">
-          <Link to={`/tv/${tvId}/seasons`}>View All Seasons</Link>
+          <Link to={`/tv/${tvId}/seasons`}>View All Seasons ➜</Link>
         </div>
       </section>
       <section className="recommend-list">

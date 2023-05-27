@@ -10,7 +10,7 @@ export default function EpisodeItem({ backgroundPath, name, vote, airDate, overv
       <div className="episode-details">
         <div className="episode-title">
           <h2>{name}</h2>
-          <h4>{parseFloat(vote.toFixed(1))}★</h4>
+          <h4>{parseFloat(vote.toFixed(1))} ★</h4>
         </div>
         <div className="episode-detail">
           <h3>{airDate}</h3>

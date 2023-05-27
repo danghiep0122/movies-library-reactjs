@@ -50,6 +50,10 @@
   font-weight: 800;
   padding: 1rem;
 
+  & a {
+    color: var(--button-color);
+  }
+
   &:hover {
     transform: translateX(2px);
     opacity: 0.6;

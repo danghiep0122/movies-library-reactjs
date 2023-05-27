@@ -1,0 +1,51 @@
+.page-wrapper {
+  border: 1px solid red;
+}
+
+.selector-navigator {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.all-genres-list {
+  border: 1px solid violet;
+  flex: 1;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.all-country-list {
+  border: 1px solid brown;
+  flex: 1;
+}
+
+.genre-item {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--primary-color);
+  margin: 0.2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--light-gray-color);
+    color: var(--primary-color);
+  }
+
+  &.active {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+    border: 1px solid var(--light-gray-color);
+  }
+}
+
+.all-movie-results {
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

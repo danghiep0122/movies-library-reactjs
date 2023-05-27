@@ -20,6 +20,10 @@ export default function AllRoutes() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/toptrending" element={<TopTrending />} />
+          <Route
+            path="/movie"
+            element={<TopRatedLayOut pageTitle="Top Rated Movie" type="movie" />}
+          />
           <Route path="/movie/:movieId" element={<MovieDetail />} />
           <Route path="/movie/:movieId/videos" element={<VideosPage type="movie" />} />
           <Route
@@ -32,6 +36,7 @@ export default function AllRoutes() {
           />
 
           {/* change to TVShowDetail */}
+          <Route path="/tv" element={<TopRatedLayOut pageTitle="Top Rated TV Show" type="tv" />} />
           <Route path="/tv/:tvId" element={<TvDetail />} />
           <Route path="/tv/:tvId/videos" element={<VideosPage type="tv" />} />
           <Route path="/tv/:tvId/seasons" element={<SeasonPage />} />

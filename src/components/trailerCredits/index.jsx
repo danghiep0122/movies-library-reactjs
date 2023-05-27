@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { PlayButtonIcon } from '../../assets/img/icon/allIcon';
 import Image from '../image';
@@ -13,6 +13,8 @@ export default function TrailerCredits() {
   const [listMovies, setListMovies] = useState([]);
   const [onModal, setOnModal] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState({});
+
+  const allTrailer = useRef();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -36,6 +38,10 @@ export default function TrailerCredits() {
 
   useEffect(() => {
     getLatestVideo();
+    allTrailer.current.scrollTo({
+      left: 0,
+      behavior: 'smooth'
+    });
   }, [creditType]);
 
   return (
@@ -62,7 +68,7 @@ export default function TrailerCredits() {
               </button>
             </div>
           </div>
-          <div className="all-trailer-list">
+          <div ref={allTrailer} className="all-trailer-list">
             {listMovies.map((item) => (
               <div
                 key={item.id}

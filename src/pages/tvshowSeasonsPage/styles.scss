@@ -108,6 +108,14 @@
   }
 }
 
+.go-back-to-prev {
+  color: var(--blue-color);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
 .season-items-wrapper {
   display: flex;
   flex-direction: column;
@@ -121,7 +129,7 @@
   padding: 2rem;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   .seasons-title {
     flex-direction: column;
     padding: 0.4rem;
