@@ -61,7 +61,7 @@ export default function SeasonPage() {
                 <p>{seasonsDetails.overview}</p>
               </div>
 
-              <div>
+              <div className="go-back-to-prev">
                 <span onClick={goBack}>🡰 Back to Detail Page</span>
               </div>
             </div>

@@ -34,7 +34,14 @@ nav {
 
   & a {
     color: var(--text-light-color);
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2rem;
+    transition: all ease-in-out 0.2s;
+  }
+
+  & a:hover {
+    background-color: rgba($color: white, $alpha: 0.6);
+    color: var(--primary-color);
   }
 }
 
@@ -44,11 +51,11 @@ nav {
 
 .type-title::after {
   position: absolute;
-  bottom: -2rem;
+  bottom: -1.8rem;
   left: 0;
   content: '';
   width: 100%;
-  height: 2rem;
+  height: 1rem;
 }
 
 .type-selection {
@@ -129,26 +136,30 @@ nav {
 
     & a {
       margin: 0.6rem 0;
-      padding: 1rem 2rem;
+      padding: 1rem;
       font-size: x-large;
       font-weight: 800;
       color: var(--text-light-color);
-      border-radius: 3rem;
     }
 
     & h5 {
       margin: 2rem 1rem;
       margin-bottom: 0;
-      font-weight: 800;
-      color: var(--light-gray-color);
-      font-size: xx-large;
       border-bottom: 1px dotted var(--text-light-color);
     }
   }
 }
 
 @media screen and (max-width: 767px) {
+  .dropdown-selection {
+    padding: 0;
+  }
+
   .type-title {
     padding: 0.2rem;
+
+    & a {
+      padding: 0.6rem 0.4rem;
+    }
   }
 }

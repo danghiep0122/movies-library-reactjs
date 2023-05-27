@@ -42,7 +42,9 @@ export default function NavBar() {
             </div>
           </div>
           <div className="type-section">
-            <div className="type-title">People</div>
+            <div className="type-title">
+              <Link to={'/person'}>People</Link>
+            </div>
             <div className="type-selection">
               <Link to={'/person'}>Popular</Link>
             </div>
@@ -60,10 +62,14 @@ export default function NavBar() {
               </div>
               <Link to={'/'}>Home</Link>
               <Link to={'/person'}>Person</Link>
-              <h5>Movies</h5>
+              <h5>
+                <Link to={'/movie/trending'}>Movies</Link>
+              </h5>
               <Link to={'/movie/trending'}>Trending</Link>
               <Link to={'/movie/topRated'}>Top Rated</Link>
-              <h5>TV Show</h5>
+              <h5>
+                <Link to={'/tv/topRated'}>TV Show</Link>
+              </h5>
               <Link to={'/tv/popular'}>Popular</Link>
               <Link to={'/tv/topRated'}>Top Rated</Link>
             </div>
