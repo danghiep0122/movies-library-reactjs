@@ -1,17 +1,25 @@
 import { Link } from 'react-router-dom';
-import { DeleteBtn, HamburgerMenuIcon, PrimaryShortLogo } from '../../assets/img/icon/allIcon';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
-import { useState } from 'react';
+import { DeleteBtn, HamburgerMenuIcon, PrimaryShortLogo } from '../../assets/img/icon/allIcon';
 
 export default function NavBar() {
   const [width, setWidth] = useState(0);
+
+  const { t } = useTranslation();
 
   const openNav = () => {
     setWidth('100%');
   };
   const closeNav = () => {
     setWidth('0');
+  };
+
+  const handleChangeLanguage = (e) => {
+    const href = window.location.pathname;
+    window.location.href = `${href}?lng=${e.target.value}`;
   };
   return (
     <nav>
@@ -25,30 +33,38 @@ export default function NavBar() {
         <section className="dropdown-selection">
           <div className="type-section">
             <div className="type-title">
-              <Link to={'/movie'}>Movies</Link>
+              <Link to={'/movie'}>{t('movies')}</Link>
             </div>
             <div className="type-selection">
-              <Link to={'/movie/trending'}>Treding</Link>
-              <Link to={'/movie/topRated'}>Top Rated</Link>
+              <Link to={'/movie/trending'}>{t('trending')}</Link>
+              <Link to={'/movie/topRated'}>{t('topRated')}</Link>
             </div>
           </div>
           <div className="type-section">
             <div className="type-title">
-              <Link to={'/tv'}>TV Show</Link>
+              <Link to={'/tv'}>{t('tvShow')}</Link>
             </div>
             <div className="type-selection">
-              <Link to={'/tv/popular'}>Popular</Link>
-              <Link to={'/tv/topRated'}>Top Rated</Link>
+              <Link to={'/tv/popular'}>{t('popular')}</Link>
+              <Link to={'/tv/topRated'}>{t('topRated')}</Link>
             </div>
           </div>
           <div className="type-section">
             <div className="type-title">
-              <Link to={'/person'}>People</Link>
+              <Link to={'/person'}>{t('people')}</Link>
             </div>
             <div className="type-selection">
-              <Link to={'/person'}>Popular</Link>
+              <Link to={'/person'}>{t('popular')}</Link>
             </div>
           </div>
+        </section>
+        <section>
+          <button value="en" onClick={handleChangeLanguage}>
+            En
+          </button>
+          <button value="vi" onClick={handleChangeLanguage}>
+            Vi
+          </button>
         </section>
 
         <section className="navbar-hamburger-menu">
@@ -60,18 +76,18 @@ export default function NavBar() {
               <div className="close-btn">
                 <DeleteBtn fill="var(--text-light-color)" />
               </div>
-              <Link to={'/'}>Home</Link>
-              <Link to={'/person'}>Person</Link>
+              <Link to={'/'}>{t('home')}</Link>
+              <Link to={'/person'}>{t('people')}</Link>
               <h5>
-                <Link to={'/movie/trending'}>Movies</Link>
+                <Link to={'/movie/trending'}>{t('movies')}</Link>
               </h5>
-              <Link to={'/movie/trending'}>Trending</Link>
-              <Link to={'/movie/topRated'}>Top Rated</Link>
+              <Link to={'/movie/trending'}>{t('trending')}</Link>
+              <Link to={'/movie/topRated'}>{t('topRated')}</Link>
               <h5>
-                <Link to={'/tv/topRated'}>TV Show</Link>
+                <Link to={'/tv/topRated'}>{t('tvShow')}</Link>
               </h5>
-              <Link to={'/tv/popular'}>Popular</Link>
-              <Link to={'/tv/topRated'}>Top Rated</Link>
+              <Link to={'/tv/popular'}>{t('popular')}</Link>
+              <Link to={'/tv/topRated'}>{t('topRated')}</Link>
             </div>
           </div>
         </section>

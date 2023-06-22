@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 import Image from '../../components/image';
 import SearchSection from '../../components/searchSection';
-import Pagination from '../../components/pagination';
+import Pagination from '../../components/Pagination';
 
 export default function Persons() {
   const [allPeople, setAllPeople] = useState([]);
