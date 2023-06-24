@@ -4,9 +4,13 @@ import Image from '../../components/image';
 import axios from 'axios';
 
 import '../search/styles.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function SearchSection({ type }) {
   const [banner, setBanner] = useState('');
+
+  const { t } = useTranslation();
+
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const getAllBanner = async () => {
@@ -28,8 +32,8 @@ export default function SearchSection({ type }) {
     <>
       <div className="image-wrapper">{banner && <Image srcfull={banner} alt="loading ..." />}</div>
       <div className="blur-cover">
-        <h2>Welcome.</h2>
-        <h4>{`Millions of ${type} to discover. Explore now`}</h4>
+        <h2>{t('welcome')}.</h2>
+        <h4>{t('search_greeting', { things: type })}</h4>
         <SearchForm type={type} />
       </div>
     </>

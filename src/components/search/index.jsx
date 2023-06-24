@@ -15,6 +15,7 @@ import useDebounce from '../../hooks/useDebounce';
 import './styles.scss';
 import { QuestionMarkIcon } from '../../assets/img/icon/allIcon';
 import Image from '../image';
+import { useTranslation } from 'react-i18next';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -24,8 +25,9 @@ export const MultiSearchForm = () => {
   const [allPerson, setAllPerson] = useState([]);
   const [input, setInput] = useState('');
 
-  const keyWord = useDebounce(input, 800);
+  const { t } = useTranslation();
 
+  const keyWord = useDebounce(input, 800);
   const urlMulti = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${keyWord}&page=1&include_adult=false`;
 
   const getResults = async () => {
@@ -91,7 +93,7 @@ export const MultiSearchForm = () => {
           />
           <div className="right-component">
             <div onClick={handleOffModal} className="delete-icon">
-              <p>Clear all</p>
+              <p>{t('clear_all')}</p>
               <DeleteBtn height="1.6rem" width="1.6rem" fill="var(--text-dark-color)" />
             </div>
           </div>
@@ -107,12 +109,12 @@ export const MultiSearchForm = () => {
         <div className="result-list">
           <div className="media-type-title-and-logo">
             <MovieIcon width="2rem" height="2rem" fill="var(--red-color)" />
-            <h1 style={{ color: 'var(--red-color)' }}>Movies</h1>
+            <h1 style={{ color: 'var(--red-color)' }}>{t('movies')}</h1>
           </div>
           {allMovie.length === 0 ? (
             <div className="no-result-alert">
               <SearchFailedIcon width="2rem" height="2rem" />
-              No result
+              {t('no_result')}
             </div>
           ) : (
             allMovie.map(({ id, title, release_date, original_language }) => (
@@ -130,12 +132,12 @@ export const MultiSearchForm = () => {
         <div className="result-list">
           <div className="media-type-title-and-logo">
             <TVShowIcon width="2rem" height="2rem" fill="var(--blue-color)" />
-            <h1 style={{ color: 'var(--blue-color)' }}>TV Show</h1>
+            <h1 style={{ color: 'var(--blue-color)' }}>{t('tvShow')}</h1>
           </div>
           {allTvShow.length === 0 ? (
             <div className="no-result-alert">
               <SearchFailedIcon width="2rem" height="2rem" />
-              No result
+              {t('no_result')}
             </div>
           ) : (
             allTvShow.map(({ id, name, first_air_date, original_language }) => (
@@ -153,12 +155,12 @@ export const MultiSearchForm = () => {
         <div className="result-list">
           <div className="media-type-title-and-logo">
             <UserIcon width="2rem" height="2rem" fill="var(--primary-color)" />
-            <h1 style={{ color: 'var(--primary-color)' }}>People</h1>
+            <h1 style={{ color: 'var(--primary-color)' }}>{t('people')}</h1>
           </div>
           {allPerson.length === 0 ? (
             <div className="no-result-alert">
               <SearchFailedIcon width="2rem" height="2rem" />
-              No result
+              {t('no_result')}
             </div>
           ) : (
             allPerson.map(({ id, name, profile_path, gender, known_for_department }) => (
@@ -193,6 +195,8 @@ export const MultiSearchForm = () => {
 export function SearchForm({ type }) {
   const [input, setInput] = useState('');
   const [allResults, setAllResults] = useState([]);
+
+  const { t } = useTranslation();
 
   const keyWord = useDebounce(input, 800);
 
@@ -234,7 +238,7 @@ export function SearchForm({ type }) {
           />
           <div className="right-component">
             <div onClick={handleOffModal} className="delete-icon">
-              <p>Clear all</p>
+              <p>{t('clear_all')}</p>
               <DeleteBtn height="1.6rem" width="1.6rem" fill="var(--text-dark-color)" />
             </div>
           </div>
@@ -245,12 +249,12 @@ export function SearchForm({ type }) {
           <div className="result-list">
             <div className="media-type-title-and-logo">
               <MovieIcon width="2rem" height="2rem" fill="var(--red-color)" />
-              <h1 style={{ color: 'var(--red-color)' }}>Movies</h1>
+              <h1 style={{ color: 'var(--red-color)' }}>{t('movies')}</h1>
             </div>
             {allResults.length === 0 ? (
               <div className="no-result-alert">
                 <SearchFailedIcon width="2rem" height="2rem" />
-                No result
+                {t('no_result')}
               </div>
             ) : (
               allResults.map(({ id, title, release_date, original_language }) => (
@@ -270,12 +274,12 @@ export function SearchForm({ type }) {
           <div className="result-list">
             <div className="media-type-title-and-logo">
               <TVShowIcon width="2rem" height="2rem" fill="var(--blue-color)" />
-              <h1 style={{ color: 'var(--blue-color)' }}>TV Show</h1>
+              <h1 style={{ color: 'var(--blue-color)' }}>{t('tv_show')}</h1>
             </div>
             {allResults.length === 0 ? (
               <div className="no-result-alert">
                 <SearchFailedIcon width="2rem" height="2rem" />
-                No result
+                {t('no_result')}
               </div>
             ) : (
               allResults.map(({ id, name, first_air_date, original_language }) => (
@@ -296,7 +300,7 @@ export function SearchForm({ type }) {
             {allResults.length === 0 ? (
               <div className="no-result-alert">
                 <SearchFailedIcon width="2rem" height="2rem" />
-                No result
+                {t('no_result')}
               </div>
             ) : (
               allResults.map(({ id, name, profile_path, gender, known_for_department }) => (

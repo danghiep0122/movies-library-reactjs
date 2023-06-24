@@ -10,6 +10,7 @@ import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import VideoItem from '../../components/videoItem';
+import { useTranslation } from 'react-i18next';
 
 export default function MovieDetail() {
   const [movieData, setMovieData] = useState([]);
@@ -22,6 +23,8 @@ export default function MovieDetail() {
   const recommendList = useRef();
 
   const { movieId } = useParams();
+
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -178,8 +181,9 @@ export default function MovieDetail() {
               </div>
             </div>
             <div className="quote-line">{movieData.tagline}</div>
+            <div className="quote-line">{t('tagline', { tagline: movieData.tagline })}</div>
             <div className="overview-section">
-              <h3>Overview</h3>
+              <h3>{t('overview')}</h3>
               <p>
                 <ReadMore>{movieData.overview || ''}</ReadMore>
               </p>

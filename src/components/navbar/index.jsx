@@ -21,6 +21,7 @@ export default function NavBar() {
     const href = window.location.pathname;
     window.location.href = `${href}?lng=${e.target.value}`;
   };
+
   return (
     <nav>
       <div className="nav-bar-wrapper">

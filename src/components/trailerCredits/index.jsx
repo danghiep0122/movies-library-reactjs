@@ -6,6 +6,7 @@ import Image from '../image';
 import TrailerModal from '../trailerModal';
 import './styles.scss';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function TrailerCredits() {
   const [creditType, setCreditType] = useState('movie');
@@ -15,6 +16,7 @@ export default function TrailerCredits() {
   const [trailerUrl, setTrailerUrl] = useState({});
 
   const allTrailer = useRef();
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -52,19 +54,19 @@ export default function TrailerCredits() {
         </div>
         <div className="trailer-inner">
           <div className="top-navigator">
-            <h2>Latest Trailer</h2>
+            <h2>{t('latest_trailer')}</h2>
             <div className="navigator-btn-wrapper">
               <button
                 className={creditType === 'movie' ? 'active' : ''}
                 onClick={() => setCreditType('movie')}
               >
-                Movie
+                {t('movies')}
               </button>
               <button
                 className={creditType === 'tv' ? 'active' : ''}
                 onClick={() => setCreditType('tv')}
               >
-                TV Show
+                {t('tvShow')}
               </button>
             </div>
           </div>
