@@ -5,12 +5,16 @@ import { useEffect, useState } from 'react';
 import './styles.scss';
 import Image from '../../components/image';
 import VideoDetailItem from '../../components/videoDetailItem';
+import { useTranslation } from 'react-i18next';
 
 export default function VideosPage({ type }) {
   const [allVieos, setAllVideos] = useState([]);
   const [creditDetails, setCreditDetails] = useState([]);
   const { movieId, tvId } = useParams();
+
   const goBack = useNavigate();
+  const { t } = useTranslation();
+
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const videosUrl = `https://api.themoviedb.org/3/${type}/${
@@ -63,16 +67,22 @@ export default function VideosPage({ type }) {
               </div>
               <div>
                 {type === 'tv' ? (
-                  <h3>First Air Date: {creditDetails.first_air_date}</h3>
+                  <h3>
+                    {t('first_air')}: {creditDetails.first_air_date}
+                  </h3>
                 ) : (
-                  <h3>Release Date: {creditDetails.release_date}</h3>
+                  <h3>
+                    {t('release_date')}: {creditDetails.release_date}
+                  </h3>
                 )}
-                <h3>Status: {creditDetails.status}</h3>
+                <h3>
+                  {t('status')}: {creditDetails.status}
+                </h3>
                 <p>{creditDetails.overview}</p>
               </div>
 
               <div>
-                <span onClick={() => goBack(-1)}>🡰 Back to Detail Page</span>
+                <span onClick={() => goBack(-1)}>{t('back_to_detail')}</span>
               </div>
             </div>
           </div>

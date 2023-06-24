@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
@@ -13,6 +14,8 @@ export default function TopTrending({ pageTitle = 'Top Treding', type = 'tv' }) 
   const [newCredits, setNewCredits] = useState([]);
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
   const [page, setPage] = useState([2]);
+
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -85,10 +88,10 @@ export default function TopTrending({ pageTitle = 'Top Treding', type = 'tv' }) 
               <div className="spinning-loading-icon">
                 <SpinnerIcon height="2rem" width="2rem" />
               </div>
-              <span>{'Getting more items...'}</span>
+              <span>{t('get_more')}</span>
             </div>
           ) : (
-            <button onClick={() => handleClick()}>Load more items</button>
+            <button onClick={() => handleClick()}>{t('load_more')}</button>
           )}
         </section>
       </div>
