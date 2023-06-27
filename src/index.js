@@ -6,11 +6,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './i18n';
 import './index.scss';
 import App from './App';
+import LoadingPage from './pages/loadingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Suspense fallback="Loading">
+    <Suspense fallback={<LoadingPage />}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
