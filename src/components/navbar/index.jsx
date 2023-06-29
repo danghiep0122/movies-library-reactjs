@@ -60,12 +60,11 @@ export default function NavBar() {
           </div>
         </section>
         <section>
-          <button value="en" onClick={handleChangeLanguage}>
-            En
-          </button>
-          <button value="vi" onClick={handleChangeLanguage}>
-            Vi
-          </button>
+          <div className="language-changer" onClick={handleChangeLanguage}>
+            <p>{t('lang')}</p>
+            <button value="en" className="language-button eng"></button>
+            <button className="language-button vie" value="vi"></button>
+          </div>
         </section>
 
         <section className="navbar-hamburger-menu">

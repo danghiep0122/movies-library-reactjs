@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
 import { ReadMore } from '../../util/ReadMore';
@@ -19,7 +20,9 @@ export default function Person() {
   const [persondata, setPersonData] = useState({});
   const [credits, setCredits] = useState([]);
   const [social, setSocial] = useState({});
+
   const { personId } = useParams();
+  const { t } = useTranslation();
 
   const Apikey = process.env.REACT_APP_API_KEY;
   const PersonUrl = process.env.REACT_APP_PERSON_URL;
@@ -112,30 +115,30 @@ export default function Person() {
               </ul>
             </div>
             <div>
-              <h2 className="overall-title">Personal Info</h2>
+              <h2 className="overall-title">{t('person_info')}</h2>
               <ul className="personal-info">
                 <li>
-                  <h3>Known For</h3>
+                  <h3>{t('known_for')}</h3>
                   <p>{persondata.known_for_department}</p>
                 </li>
                 <li>
-                  <h3>Known Credit</h3>
+                  <h3>{t('known_credit')}</h3>
                   <p>{credits.length}</p>
                 </li>
                 <li>
-                  <h3>Gender</h3>
+                  <h3>{t('gender')}</h3>
                   <p>{persondata.gender === 2 ? 'Male' : 'Female'}</p>
                 </li>
                 <li>
-                  <h3>Birthday</h3>
+                  <h3>{t('birthday')}</h3>
                   <p>{persondata.birthday}</p>
                 </li>
                 <li>
-                  <h3>Also Know As</h3>
+                  <h3>{t('aka')}</h3>
                   {persondata.also_known_as ? (
                     persondata.also_known_as.map((name) => <p key={name}>{name}</p>)
                   ) : (
-                    <p>N/A</p>
+                    <p>{t('n/a')}</p>
                   )}
                 </li>
               </ul>
@@ -144,11 +147,11 @@ export default function Person() {
           <section className="persion-details">
             <h2>{persondata.name}</h2>
             <div className="person-bio">
-              <h3>Biography</h3>
+              <h3>{t('bio')}</h3>
               <ReadMore>{persondata.biography || 'Loading'}</ReadMore>
             </div>
             <div className="know-for-section">
-              <h3>Know For</h3>
+              <h3>{t('credit_in')}</h3>
               <div className="list-movie-tv-show">
                 <ul>
                   {credits
