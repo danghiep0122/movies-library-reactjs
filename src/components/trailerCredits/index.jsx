@@ -66,7 +66,7 @@ export default function TrailerCredits() {
                 className={creditType === 'tv' ? 'active' : ''}
                 onClick={() => setCreditType('tv')}
               >
-                {t('tvShow')}
+                {t('TV')}
               </button>
             </div>
           </div>

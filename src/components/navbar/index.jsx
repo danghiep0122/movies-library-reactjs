@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
 import { DeleteBtn, HamburgerMenuIcon, PrimaryShortLogo } from '../../assets/img/icon/allIcon';
+import { LanguageChangerLarge, LanguageChangerSmall } from '../languageChanger';
 
 export default function NavBar() {
   const [width, setWidth] = useState(0);
@@ -15,11 +16,6 @@ export default function NavBar() {
   };
   const closeNav = () => {
     setWidth('0');
-  };
-
-  const handleChangeLanguage = (e) => {
-    const href = window.location.pathname;
-    window.location.href = `${href}?lng=${e.target.value}`;
   };
 
   return (
@@ -43,7 +39,7 @@ export default function NavBar() {
           </div>
           <div className="type-section">
             <div className="type-title">
-              <Link to={'/tv'}>{t('tvShow')}</Link>
+              <Link to={'/tv'}>{t('TV')}</Link>
             </div>
             <div className="type-selection">
               <Link to={'/tv/popular'}>{t('popular')}</Link>
@@ -59,13 +55,7 @@ export default function NavBar() {
             </div>
           </div>
         </section>
-        <section>
-          <div className="language-changer" onClick={handleChangeLanguage}>
-            <p>{t('lang')}</p>
-            <button value="en" className="language-button eng"></button>
-            <button className="language-button vie" value="vi"></button>
-          </div>
-        </section>
+        <LanguageChangerLarge />
 
         <section className="navbar-hamburger-menu">
           <div onClick={openNav} className="hamburger-menu-wrapper">
@@ -76,6 +66,9 @@ export default function NavBar() {
               <div className="close-btn">
                 <DeleteBtn fill="var(--text-light-color)" />
               </div>
+              <div className="seperate-line" />
+              <LanguageChangerSmall />
+              <div className="seperate-line" />
               <Link to={'/'}>{t('home')}</Link>
               <Link to={'/person'}>{t('people')}</Link>
               <h5>

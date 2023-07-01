@@ -18,7 +18,7 @@ nav {
 .dropdown-selection {
   flex: 1;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 1.6rem;
 }
 
 .type-section {
@@ -34,7 +34,7 @@ nav {
 
   & a {
     color: var(--text-light-color);
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1rem;
     border-radius: 2rem;
     transition: all ease-in-out 0.2s;
   }
@@ -92,51 +92,6 @@ nav {
   display: none;
 }
 
-.language-changer {
-  display: flex;
-  align-items: center;
-
-  & p {
-    width: 5rem;
-    color: var(--text-light-color);
-  }
-}
-
-.language-button {
-  height: var(--navbar-height);
-  width: calc(var(--navbar-height) + 1rem);
-  cursor: pointer;
-  border: none;
-  background-size: var(--navbar-height);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--primary-color);
-  transition: background-color ease-in-out 0.4s;
-
-  &:hover {
-    background-color: var(--background-light-color);
-  }
-
-  &.eng {
-    background-image: url(../../assets/img/png/engFlag.png);
-  }
-  &.vie {
-    background-image: url(../../assets/img/png/vieFlag.png);
-  }
-
-  &:hover > img {
-    scale: 1.1;
-  }
-
-  & img {
-    transition: scale ease-in-out 0.4s;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-}
-
 @media screen and (max-width: 575px) {
   .nav-bar-wrapper {
     padding: 0.4rem 1rem;
@@ -169,6 +124,12 @@ nav {
     overflow: hidden;
   }
 
+  .seperate-line {
+    border: 1px solid var(--text-light-color);
+    width: 90%;
+    margin: 1rem 0;
+  }
+
   .inner-navbar-content {
     display: flex;
     flex-direction: column;
@@ -181,21 +142,20 @@ nav {
 
     & a {
       margin: 0.6rem 0;
-      padding: 1rem;
+      padding: 0.2rem;
       font-size: x-large;
       font-weight: 800;
       color: var(--text-light-color);
     }
 
     & h5 {
-      margin: 2rem 1rem;
-      margin-bottom: 0;
+      margin-top: 2rem;
       border-bottom: 1px dotted var(--text-light-color);
     }
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .dropdown-selection {
     padding: 0;
   }
