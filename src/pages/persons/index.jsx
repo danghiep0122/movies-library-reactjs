@@ -6,11 +6,14 @@ import './styles.scss';
 import Image from '../../components/image';
 import SearchSection from '../../components/searchSection';
 import Pagination from '../../components/pagination';
+import { useTranslation } from 'react-i18next';
 
 export default function Persons() {
   const [allPeople, setAllPeople] = useState([]);
   const [pageNo, setPageNo] = useState(1);
   const [allPages, setAllPages] = useState(0);
+
+  const { t } = useTranslation();
 
   const personUrl = process.env.REACT_APP_PERSON_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -40,7 +43,7 @@ export default function Persons() {
           <SearchSection type="person" />
         </section>
         <section className="page-title">
-          <h2>Popular People</h2>
+          <h2>{t('popular_peolpe')}</h2>
         </section>
         <section className="all-people">
           {allPeople.map((people) => (

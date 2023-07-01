@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ReadMore = ({ children = '' }) => {
   const text = children;
+  const { t } = useTranslation();
   const [isMore, setIsMore] = useState(true);
   const toggleReadMore = () => {
     setIsMore(!isMore);
@@ -19,7 +21,7 @@ export const ReadMore = ({ children = '' }) => {
           }
           onClick={toggleReadMore}
         >
-          {isMore ? 'Read more ▼' : 'Show less'}
+          {isMore ? t('read_more') : t('show_less')}
         </span>
       )}
     </span>

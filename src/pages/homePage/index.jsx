@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './styles.scss';
 import { MultiSearchForm } from '../../components/search';
@@ -9,8 +10,12 @@ import Image from '../../components/image';
 
 export default function HomePage() {
   const [bannerUrl, setBannerUrl] = useState('');
+
+  const { t } = useTranslation();
+
   const apiKey = process.env.REACT_APP_API_KEY;
   const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
+
   const getBannerImg = async (random) => {
     await axios
       .get(url)
@@ -31,8 +36,8 @@ export default function HomePage() {
           </div>
           <div>
             <div className="homepage-greeting">
-              <h2>Welcome.</h2>
-              <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
+              <h2>{t('welcome')}.</h2>
+              <h3>{t('home_greeting')}</h3>
             </div>
             <MultiSearchForm />
           </div>

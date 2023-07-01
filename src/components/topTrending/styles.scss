@@ -38,6 +38,7 @@
   border-radius: 2rem;
   overflow: hidden;
   background-color: var(--white-color);
+  display: flex;
 
   & button {
     border: 1px solid transparent;
@@ -79,10 +80,16 @@
 @media screen and (max-width: 767px) {
   .top-navigator {
     flex-direction: column;
+    align-items: center;
 
     & h2 {
       margin-bottom: 1rem;
+      text-align: center;
     }
+  }
+
+  .navigator-btn-wrapper button {
+    padding: 0.6rem 2rem;
   }
 
   .all-trending-credits {

@@ -15,6 +15,7 @@ import Pie from '../../components/pieChart/PieChart';
 import VideoItem from '../../components/videoItem';
 import { ReadMore } from '../../util/ReadMore';
 import './styles.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function TvDetails() {
   const [tvShowData, setTvShowData] = useState([]);
@@ -26,6 +27,7 @@ export default function TvDetails() {
   const [latestSeason, setLatestSeason] = useState({});
 
   const { tvId } = useParams();
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -114,7 +116,7 @@ export default function TvDetails() {
                     textTransform: 'uppercase'
                   }}
                 >{`${tvShowData.release_date} (${tvShowData.original_language})`}</span>
-                {`Drama, Action & Adventure ⏲ ${tvShowData.runtime}m`}
+                {`Drama, Action & Adventure`}
               </h3>
             </div>
             <div className="list-toolkits">
@@ -123,7 +125,7 @@ export default function TvDetails() {
                   <Pie percentage={tvShowData.vote_average * 10} size={35} fontSize={'2.2rem'} />
                 </span>
                 <span>
-                  User <br /> Score
+                  {t('user')} <br /> {t('score')}
                 </span>
               </div>
               <div className="toolkit">
@@ -181,7 +183,7 @@ export default function TvDetails() {
             </div>
             <div className="quote-line">{tvShowData.tagline}</div>
             <div className="overview-section">
-              <h3>Overview</h3>
+              <h3>{t('overview')}</h3>
               <p>
                 <ReadMore>{tvShowData.overview}</ReadMore>
               </p>
@@ -200,7 +202,7 @@ export default function TvDetails() {
         </div>
       </section>
       <section className="cast-details">
-        <h3 className="cast-details-title">Top Billed Cast</h3>
+        <h3 className="cast-details-title">{t('top_bill')}</h3>
         <ul className="list-cast">
           {allCast.map((person) => (
             <Link to={`/person/${person.id}`} key={person.id}>
@@ -215,7 +217,7 @@ export default function TvDetails() {
         </ul>
       </section>
       <section className="latest-season">
-        <h2>Current Season</h2>
+        <h2>{t('current_season')}</h2>
         <div className="season-overview">
           <div className="season-poster-wrapper">
             {latestSeason.poster_path ? (
@@ -232,7 +234,7 @@ export default function TvDetails() {
               <span>{latestSeason.air_date}</span>
               <span>{` | `}</span>
               <span>{latestSeason.episode_count}</span>
-              <span> Episodes</span>
+              <span> {t('episode')}</span>
             </h4>
             <p>
               <ReadMore>{latestSeason.overview}</ReadMore>
@@ -240,11 +242,11 @@ export default function TvDetails() {
           </div>
         </div>
         <div className="link-to-season-page">
-          <Link to={`/tv/${tvId}/seasons`}>View All Seasons ➜</Link>
+          <Link to={`/tv/${tvId}/seasons`}>{t('view_all_season')}</Link>
         </div>
       </section>
       <section className="recommend-list">
-        <h3 className="cast-details-title">Recommend TV Shows</h3>
+        <h3 className="cast-details-title">{t('recommend_tv')}</h3>
         <ul className="credit-list">
           {creditRecommend.map((credit) => (
             <li key={credit.id}>
@@ -265,7 +267,7 @@ export default function TvDetails() {
           <div className="videos-nav-wrapper">
             <h3 className="cast-details-title">Videos ({allVideos.length})</h3>
             <Link to={`/tv/${tvId}/videos`}>
-              <h2>See all</h2>
+              <h2>{t('see_all')}</h2>
             </Link>
           </div>
           <ul className="credit-list">

@@ -5,11 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Image from '../../components/image';
 import EpisodeItem from '../../components/tvEpisodeItem';
 import './styles.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function SeasonDetailPage() {
   const [seasonData, setSeasonData] = useState([]);
   const [episodesData, setEpisodesData] = useState([]);
   const { tvId, season } = useParams();
+
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
   const url = `https://api.themoviedb.org/3/tv/${tvId}/season/${season}?api_key=${apiKey}&language=en-US`;
@@ -53,7 +56,7 @@ export default function SeasonDetailPage() {
       </section>
       <section className="all-season-episodes">
         <div className="goback-function" onClick={goBack}>
-          <h6>⬅ Go back</h6>
+          <h6>{t('go_back')}</h6>
         </div>
         <div className="all-episodes-wrapper">
           {episodesData.map(({ id, still_path, name, overview, air_date, vote_average }) => (

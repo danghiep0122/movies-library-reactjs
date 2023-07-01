@@ -1,7 +1,10 @@
 import './styles.scss';
 import { DeleteBtn } from '../../assets/img/icon/allIcon';
+import { useTranslation } from 'react-i18next';
 
 export default function TrailerYoutube({ setOnModal, videoUrl }) {
+  const { t } = useTranslation();
+
   return (
     <main>
       <div onClick={() => setOnModal(false)} className="modal-outer" />
@@ -12,7 +15,7 @@ export default function TrailerYoutube({ setOnModal, videoUrl }) {
               setOnModal(false);
             }}
           >
-            <h4>Close</h4>
+            <h4>{t('close')}</h4>
             <DeleteBtn height="2rem" width="2rem" fill="var(--white-color)" />
           </button>
           <div className="trailer-video">

@@ -1,0 +1,52 @@
+.language-changer-large {
+  display: flex;
+  align-items: center;
+
+  & p {
+    width: 5rem;
+    line-height: 1.2rem;
+    color: var(--text-light-color);
+    user-select: none;
+  }
+}
+
+.language-button {
+  height: calc(var(--navbar-height) * 0.6);
+  width: calc(var(--navbar-height));
+  cursor: pointer;
+  border: none;
+  background-size: var(--navbar-height);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--primary-color);
+  transition: background-color ease-in-out 0.4s;
+
+  &:hover {
+    background-color: var(--background-light-color);
+  }
+
+  &.eng {
+    background-image: url(../../assets/img/png/engFlag.png);
+  }
+  &.vie {
+    background-image: url(../../assets/img/png/vieFlag.png);
+  }
+}
+
+@media screen and (width <= 767px) {
+  .language-changer-large {
+    display: none;
+  }
+
+  .language-changer-small {
+    display: flex;
+    align-items: center;
+
+    & p {
+      width: 5rem;
+      line-height: 1.2rem;
+      color: var(--text-light-color);
+      user-select: none;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import Image from '../../components/image';
 import Pie from '../../components/pieChart/PieChart';
 import { ReadMore } from '../../util/ReadMore';
 import VideoItem from '../../components/videoItem';
+import { useTranslation } from 'react-i18next';
 
 export default function MovieDetail() {
   const [movieData, setMovieData] = useState([]);
@@ -22,6 +23,8 @@ export default function MovieDetail() {
   const recommendList = useRef();
 
   const { movieId } = useParams();
+
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -179,7 +182,7 @@ export default function MovieDetail() {
             </div>
             <div className="quote-line">{movieData.tagline}</div>
             <div className="overview-section">
-              <h3>Overview</h3>
+              <h3>{t('overview')}</h3>
               <p>
                 <ReadMore>{movieData.overview || ''}</ReadMore>
               </p>
@@ -198,7 +201,7 @@ export default function MovieDetail() {
         </div>
       </section>
       <section className="cast-details">
-        <h3 className="cast-details-title">Top Billed Cast</h3>
+        <h3 className="cast-details-title">{t('top_bill')}</h3>
         <ul className="list-cast">
           {allCast.map((person) => (
             <li key={person.cast_id}>
@@ -216,7 +219,7 @@ export default function MovieDetail() {
       </section>
       {creditRecommend.length !== 0 && (
         <section className="recommend-list">
-          <h3 className="cast-details-title">Recommend Movie</h3>
+          <h3 className="cast-details-title">{t('recommend_movie')}</h3>
           <ul ref={recommendList} className="credit-list">
             {creditRecommend.map((credit) => (
               <li key={credit.id}>
@@ -238,7 +241,7 @@ export default function MovieDetail() {
           <div className="videos-nav-wrapper">
             <h3 className="cast-details-title">Videos ({allVideos.length})</h3>
             <Link to={`/movie/${movieId}/videos`}>
-              <h2>See all</h2>
+              <h2>{t('see_all')}</h2>
             </Link>
           </div>
           <ul className="credit-list">

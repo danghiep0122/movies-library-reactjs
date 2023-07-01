@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import SearchSection from '../../components/searchSection';
 import CreditItem from '../../components/creditItem';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 import { SpinnerIcon } from '../../assets/img/icon/allIcon';
-
 import './styles.scss';
 
 export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie' }) {
@@ -14,6 +14,8 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
   const [newCredits, setNewCredits] = useState([]);
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
   const [page, setPage] = useState([2]);
+
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -88,10 +90,10 @@ export default function TopRatedLayOut({ pageTitle = 'Top Rated', type = 'movie'
               <div className="spinning-loading-icon">
                 <SpinnerIcon height="2rem" width="2rem" />
               </div>
-              <span>{'Getting more items...'}</span>
+              <span>{t('get_more')}</span>
             </div>
           ) : (
-            <button onClick={() => handleClick()}>Load more items</button>
+            <button onClick={() => handleClick()}>{t('load_more')}</button>
           )}
         </section>
       </div>

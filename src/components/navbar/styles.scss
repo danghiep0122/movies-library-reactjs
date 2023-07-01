@@ -18,7 +18,7 @@ nav {
 .dropdown-selection {
   flex: 1;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 1.6rem;
 }
 
 .type-section {
@@ -34,7 +34,7 @@ nav {
 
   & a {
     color: var(--text-light-color);
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1rem;
     border-radius: 2rem;
     transition: all ease-in-out 0.2s;
   }
@@ -124,6 +124,12 @@ nav {
     overflow: hidden;
   }
 
+  .seperate-line {
+    border: 1px solid var(--text-light-color);
+    width: 90%;
+    margin: 1rem 0;
+  }
+
   .inner-navbar-content {
     display: flex;
     flex-direction: column;
@@ -136,21 +142,20 @@ nav {
 
     & a {
       margin: 0.6rem 0;
-      padding: 1rem;
+      padding: 0.2rem;
       font-size: x-large;
       font-weight: 800;
       color: var(--text-light-color);
     }
 
     & h5 {
-      margin: 2rem 1rem;
-      margin-bottom: 0;
+      margin-top: 2rem;
       border-bottom: 1px dotted var(--text-light-color);
     }
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .dropdown-selection {
     padding: 0;
   }

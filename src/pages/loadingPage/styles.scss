@@ -1,0 +1,13 @@
+.loading-section {
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  background-color: var(--background-light-color);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-content {
+  margin-bottom: 5rem;
+}

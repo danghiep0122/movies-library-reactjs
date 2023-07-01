@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import TvSeasonItem from '../../components/tvSeasonItem';
 import Image from '../../components/image';
 import './styles.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function SeasonPage() {
   const [seasonsDetails, setSeasonsDetails] = useState([]);
@@ -12,6 +13,7 @@ export default function SeasonPage() {
 
   const { tvId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const goBack = () => {
     navigate(-1);
@@ -56,13 +58,18 @@ export default function SeasonPage() {
                 )}
               </div>
               <div>
-                <h3>First Air Date: {seasonsDetails.first_air_date}</h3>
-                <h3>Status: {seasonsDetails.status}</h3>
+                <h3>
+                  {t('first_air')}: {seasonsDetails.first_air_date}
+                </h3>
+                <h3>
+                  {t('status')}: {seasonsDetails.status}
+                </h3>
+                <h3>{t('overview')}</h3>
                 <p>{seasonsDetails.overview}</p>
               </div>
 
               <div className="go-back-to-prev">
-                <span onClick={goBack}>🡰 Back to Detail Page</span>
+                <span onClick={goBack}>{t('back_to_detail')}</span>
               </div>
             </div>
           </div>

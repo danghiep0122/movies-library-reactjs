@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 import CreditItem from '../creditItem';
 import './styles.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function TrendingCredits() {
   const [times, setTimes] = useState('day');
   const [trendingList, setTrendingList] = useState([]);
 
   const allTrending = useRef();
+  const { t } = useTranslation();
 
   const apiKey = process.env.REACT_APP_API_KEY;
   const url = `https://api.themoviedb.org/3/trending/all/${times}?api_key=${apiKey}`;
@@ -35,21 +37,21 @@ export default function TrendingCredits() {
         <img src={backgroundUrl} alt="background-image" />
       </div>
       <div className="top-navigator">
-        <h2>Top Treding</h2>
+        <h2>{t('top_trending')}</h2>
         <div className="navigator-btn-wrapper">
           <button
             type="reset"
             className={times === 'day' ? 'active' : ''}
             onClick={() => setTimes('day')}
           >
-            Daily
+            {t('daily')}
           </button>
           <button
             type="reset"
             className={times === 'week' ? 'active' : ''}
             onClick={() => setTimes('week')}
           >
-            Weekly
+            {t('weekly')}
           </button>
         </div>
       </div>
